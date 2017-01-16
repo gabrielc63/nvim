@@ -57,7 +57,7 @@ if has("nvim")
   tnoremap <Esc> <C-\><C-n>
 endif
 
-if has("gui_macvim") && has("gui_running")
+if has("gui_vimr")
   " Map command-[ and command-] to indenting or outdenting
   " while keeping the original selection in visual mode
   vmap <D-]> >gv

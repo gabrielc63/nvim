@@ -61,5 +61,10 @@ set wildignore+=*.swp,*~,._*
 "" Backup and swap files
 ""
 
-set backupdir^=~/.vim/_backup//    " where to put backup files.
-set directory^=~/.vim/_temp//      " where to put swap files.
+" set backupdir^=~/.vim/_backup//    " where to put backup files.
+" set directory^=~/.vim/_temp//      " where to put swap files.
+
+" 70s are over and swap files are part of the past.
+" If you need to backup something, use Git, for God's sake.
+set noswapfile
+set nobackup
