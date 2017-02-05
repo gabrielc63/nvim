@@ -6,11 +6,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-endwise'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'ctrlpvim/ctrlp.vim', { 'commit': 'f6c587e408dc0b45ffbabdadbb19739f8429e1eb' } "see: https://github.com/ctrlpvim/ctrlp.vim/issues/235
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
-Plug 'jeetsukumaran/vim-buffergator'
+" Plug 'jeetsukumaran/vim-buffergator'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ddollar/nerdcommenter'
 Plug 'tpope/vim-eunuch'
@@ -28,17 +30,20 @@ Plug 'jbranchaud/vim-bdubs'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
+Plug 'mhinz/vim-startify'
 
 " Languages support
 Plug 'tpope/vim-haml', { 'for': 'haml' }
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-rails'
 " Plug 'brodock/vim-vroom', { 'branch': 'neovim-terminal' }
 Plug 'thoughtbot/vim-rspec'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
-Plug 'burnettk/vim-angular'
+Plug 'mvolkmann/vim-react'
+" Plug 'burnettk/vim-angular'
 
 " Autocomplete (requires python 3)
 function! DoRemote(arg)
@@ -56,3 +61,4 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-one'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'tomasr/molokai'
+Plug 'junegunn/seoul256.vim'

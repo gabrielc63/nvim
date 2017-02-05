@@ -1,3 +1,4 @@
+let g:python_host_skip_check=1
 let s:path = expand('<sfile>:p:h')
 let mapleader = "\<Space>"
 
@@ -17,7 +18,7 @@ exe 'source ' . s:path . '/custom/mappings.vim'
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='powerlineish'
+" let g:airline_theme='powerlineish'
 
 " Disable netrw /
 let g:loaded_netrw        = 1
@@ -34,7 +35,7 @@ set background=dark
 
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
-set cmdheight=1
+" set cmdheight=1
 " let g:echodoc_enable_at_startup	= 1
 
 " System clipboard integration
@@ -54,7 +55,7 @@ endif
 exe 'source ' . s:path . '/custom/plugins/nerdtree.vim'
 exe 'source ' . s:path . '/custom/plugins/nerdcommenter.vim'
 exe 'source ' . s:path . '/custom/plugins/fugitive.vim'
-exe 'source ' . s:path . '/custom/plugins/ctrlp.vim'
+" exe 'source ' . s:path . '/custom/plugins/ctrlp.vim'
 exe 'source ' . s:path . '/custom/strip-whitespaces.vim'
 exe 'source ' . s:path . '/custom/plugins/neoterm.vim'
 exe 'source ' . s:path . '/custom/plugins/vim-session.vim'
@@ -66,7 +67,8 @@ set shell=zsh
 set updatetime=250
 
 " search
-nmap <C-F> :Ack<space>
+" nmap <C-F> :Ack<space>
+nmap <C-F> :Ag<space>
 
 " Press i to enter insert mode, and kj to exit.
 :inoremap jk <Esc>
@@ -76,7 +78,7 @@ nmap <C-F> :Ack<space>
 nnoremap <Leader>w :w<CR>
 
 "let g:neodark#background='brown' " black, gray or brown
-colorscheme molokai
+colorscheme one
 "molokai config
 let g:rehash256 = 1
 "set colorcolumn=80
@@ -99,7 +101,8 @@ autocmd BufWritePre * :StripWhitespace
 " call matchadd('Trail', '\s\+$', 100)
 
 " Linting
-let g:neomake_javascript_enabled_makers = ['eslint', 'flow']
+let g:neomake_javascript_enabled_makers = ['eslint']
+let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 autocmd! BufWritePost * Neomake
 
 "Control P
@@ -179,3 +182,20 @@ imap <expr><TAB> <SID>neosnippet_complete()
 let g:comfortable_motion_no_default_key_mappings = 1
 nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
+
+" Startify
+let g:startify_session_dir = '~/.vim/sessions'
+let g:startify_session_autoload       = 1
+
+"vim session
+let g:session_persist_colors = 0
+let g:session_persist_font = 0
+
+let g:fzf_files_options =
+\ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+" nnoremap <leader>t :Files<cr>
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>b :Buffers<cr>
+
+" visual bell for errors
+set visualbell
