@@ -9,4 +9,6 @@ Janus served me well for many years, but it's so damn slow today.
 ```sh
 git clone https://github.com/gabrielc63/nvim.git ~/.config/nvim
 nvim +PlugInstall +qall
+pip3 install neovim
 ```
+run :CheckHealth on neovim

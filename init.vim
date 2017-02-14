@@ -18,7 +18,12 @@ exe 'source ' . s:path . '/custom/mappings.vim'
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#neomake#error_symbol='✖ '
+let g:airline#extensions#neomake#warning_symbol='⚠️  '
 " let g:airline_theme='powerlineish'
+
+" Indent
+let g:indentLine_enabled = 0
 
 " Disable netrw /
 let g:loaded_netrw        = 1
@@ -32,11 +37,6 @@ let g:sudo_no_gui=1
 set termguicolors
 set title
 set background=dark
-
-" Autocomplete
-let g:deoplete#enable_at_startup = 1
-" set cmdheight=1
-" let g:echodoc_enable_at_startup	= 1
 
 " System clipboard integration
 set clipboard=unnamed
@@ -77,10 +77,11 @@ nmap <C-F> :Ag<space>
 " nnoremap <Leader>:w <Esc>:w<CR>
 nnoremap <Leader>w :w<CR>
 
-"let g:neodark#background='brown' " black, gray or brown
+" alternative to ctrl D
+nnoremap cn *``cgn
+
+" let g:neodark#background='black' " black, gray or brown
 colorscheme one
-"molokai config
-let g:rehash256 = 1
 "set colorcolumn=80
 
 " show hidden files
@@ -101,19 +102,28 @@ autocmd BufWritePre * :StripWhitespace
 " call matchadd('Trail', '\s\+$', 100)
 
 " Linting
+let g:neomake_serialize = 1
+let g:neomake_serialize_abort_on_error = 1
+let g:neomake_verbose = 1
 let g:neomake_javascript_enabled_makers = ['eslint']
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
+let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
+let g:neomake_scss_enabled_checkers = ['scss-lint']
+let g:neomake_haml_enabled_checkers = ['hamllint']
+let g:neomake_elixir_enabled_checkers = ['mix', 'credo']
 autocmd! BufWritePost * Neomake
+let g:neomake_warning_sign = {'text': '•', 'texthl': 'NeomakeWarningSign'}
+let g:neomake_error_sign = {'text': '•', 'texthl': 'NeomakeErrorSign'}
 
 "Control P
-nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
-let g:ctrlp_max_files=0
-let g:ctrlp_max_depth=40
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn)$|bower_components|node_modules',
-    \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
-    \ }
+" nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
+" 'let g:ctrlp_max_files=0
+" let g:ctrlp_max_depth=40
+" set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+" let g:ctrlp_custom_ignore = {
+    " \ 'dir':  '\v[\/]\.(git|hg|svn)$|bower_components|node_modules',
+    " \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
+    " \ }
 
 " cambiar de pane con ctrl y direccion
 nnoremap <C-j> <C-w>j
@@ -139,9 +149,12 @@ let &t_EI .= "\<Esc>[3 q"
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#enable_smart_case = 1
+" set cmdheight=1
+" let g:echodoc_enable_at_startup	= 1
 " disable the preview entirely
-set completeopt-=preview
-" Use deoplete.
 " let g:tern_request_timeout = 1
 " let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
 let g:deoplete#omni#functions = {}
@@ -161,9 +174,6 @@ let g:tern#filetypes = [
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-
-"Select snippet with <CR>
-" imap <expr><CR> neosnippet#expandable() ? \ "\<Plug>(neosnippet_expand)" : "\<CR>"
 
 function! s:neosnippet_complete()
   if pumvisible()
@@ -185,12 +195,13 @@ nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 
 " Startify
 let g:startify_session_dir = '~/.vim/sessions'
-let g:startify_session_autoload       = 1
+let g:startify_session_autoload = 1
 
 "vim session
 let g:session_persist_colors = 0
 let g:session_persist_font = 0
 
+" FZF
 let g:fzf_files_options =
 \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 " nnoremap <leader>t :Files<cr>
@@ -199,3 +210,9 @@ nnoremap <leader>b :Buffers<cr>
 
 " visual bell for errors
 set visualbell
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip=)
+nmap ga <Plug>(EasyAlign)
