@@ -20,7 +20,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#neomake#error_symbol='✖ '
 let g:airline#extensions#neomake#warning_symbol='⚠️  '
-" let g:airline_theme='powerlineish'
+let g:airline_theme='powerlineish'
 
 " Indent
 let g:indentLine_enabled = 0
@@ -81,7 +81,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap cn *``cgn
 
 " let g:neodark#background='black' " black, gray or brown
-colorscheme one
+colorscheme molokai
 "set colorcolumn=80
 
 " show hidden files
