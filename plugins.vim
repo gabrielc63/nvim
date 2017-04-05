@@ -34,6 +34,7 @@ Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
+Plug 'vim-utils/vim-ruby-fold'
 
 " Languages support
 Plug 'tpope/vim-haml', { 'for': 'haml' }
@@ -41,6 +42,7 @@ Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
 " Plug 'brodock/vim-vroom', { 'branch': 'neovim-terminal' }
 Plug 'thoughtbot/vim-rspec'
 Plug 'elixir-lang/vim-elixir'
@@ -66,3 +68,5 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rakr/vim-one'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'tomasr/molokai'
+Plug 'carakan/new-railscasts-theme'
+Plug 'rhysd/vim-color-spring-night'

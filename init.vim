@@ -33,7 +33,7 @@ let g:loaded_netrwPlugin  = 1
 let g:sudo_no_gui=1
 
 " Theme activation
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 set title
 set background=dark
@@ -81,7 +81,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap cn *``cgn
 
 " let g:neodark#background='black' " black, gray or brown
-colorscheme molokai
+colorscheme one
 "set colorcolumn=80
 
 " show hidden files
@@ -216,3 +216,11 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip=)
 nmap ga <Plug>(EasyAlign)
+
+"Prettier for js
+autocmd FileType javascript set formatprg=prettier\ --stdin
+"format on save
+autocmd BufWritePre *.js :normal gggqG
+" ruby fold
+let g:ruby_fold_lines_limit = 450
+set nofoldenable
