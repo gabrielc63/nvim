@@ -20,7 +20,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#neomake#error_symbol='✖ '
 let g:airline#extensions#neomake#warning_symbol='⚠️  '
-let g:airline_theme='powerlineish'
+" let g:airline_theme='powerlineish'
 
 " Indent
 let g:indentLine_enabled = 0
@@ -33,13 +33,17 @@ let g:loaded_netrwPlugin  = 1
 let g:sudo_no_gui=1
 
 " Theme activation
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 set title
 set background=dark
 
 " System clipboard integration
 set clipboard=unnamed
+
+" Mouse scroll
+set mouse=a
+" No auto ident
+set noautoindent
 
 " Execute Vroom with :terminal when in NeoVim
 if has('nvim')
@@ -81,7 +85,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap cn *``cgn
 
 " let g:neodark#background='black' " black, gray or brown
-colorscheme molokai
+colorscheme quantum
 "set colorcolumn=80
 
 " show hidden files
@@ -138,7 +142,7 @@ nnoremap <C-c> :bp\|bd #<CR>
 noremap H ^
 noremap L $
 " change cursor insert mode
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+let guicursor = 1
 " insert mode - line
 let &t_SI .= "\<Esc>[5 q"
 "replace mode - underline
