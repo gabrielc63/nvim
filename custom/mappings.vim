@@ -1,6 +1,10 @@
 ""
 "" General Mappings (Normal, Visual, Operator-pending)
 ""
+" Open tab
+:noremap tt :tab split<CR>
+" Close tab
+:noremap tc :tabc <CR>
 
 " Toggle paste mode
 nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>

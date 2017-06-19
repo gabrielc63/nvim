@@ -84,8 +84,9 @@ nnoremap <Leader>w :w<CR>
 " alternative to ctrl D
 nnoremap cn *``cgn
 
+" theme
 " let g:neodark#background='black' " black, gray or brown
-colorscheme quantum
+colorscheme sierra
 "set colorcolumn=80
 
 " show hidden files
@@ -152,6 +153,7 @@ let &t_EI .= "\<Esc>[3 q"
 
 
 " deoplete tab-complete
+let g:deoplete#auto_complete_delay = 50
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
@@ -223,10 +225,13 @@ nmap ga <Plug>(EasyAlign)
 
 "Prettier for js
 autocmd FileType javascript set formatprg=prettier\ --stdin
-"format on save
+"format js on save
 " autocmd BufWritePre *.js :normal gggqG
 autocmd FileType javascript nnoremap <Leader>j :normal gggqG<CR>
 
 " ruby fold
 let g:ruby_fold_lines_limit = 450
 set nofoldenable
+
+" elm format on save
+let g:elm_format_autosave = 1
