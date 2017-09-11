@@ -21,6 +21,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#neomake#error_symbol='✖ '
 let g:airline#extensions#neomake#warning_symbol='⚠️  '
 " let g:airline_theme='powerlineish'
+let g:airline_theme='dracula'
 
 " Indent
 let g:indentLine_enabled = 0
@@ -86,8 +87,12 @@ nnoremap cn *``cgn
 
 " theme
 " let g:neodark#background='black' " black, gray or brown
-colorscheme sierra
-"set colorcolumn=80
+" colorscheme sierra
+" colorscheme nova
+" colorscheme base16-default-dark
+colorscheme palenight
+let g:palenight_terminal_italics=1
+set colorcolumn=80
 
 " show hidden files
 let NERDTreeShowHidden=1
@@ -176,6 +181,15 @@ let g:tern#filetypes = [
                 \ 'vue'
                 \ ]
 
+if !exists('g:deoplete#omni#input_patterns')
+    let g:deoplete#omni#input_patterns = {}
+endif
+let g:deoplete#omni#input_patterns.cpp = [
+            \ '[^. *\t]\.\w*',
+            \ '[^. *\t]->\w*',
+            \ '[\w>]*::\w*',
+            \ ]
+
 "neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -235,3 +249,18 @@ set nofoldenable
 
 " elm format on save
 let g:elm_format_autosave = 1
+
+" Relative numbering
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set nornu
+    set number
+  else
+    set rnu
+  endif
+endfunc
+
+" Toggle between normal and relative numbering.
+nnoremap <leader>r :call NumberToggle()<cr>
+
+nnoremap <silent> <leader>c :call RebuildTags()<CR>
