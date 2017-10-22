@@ -90,7 +90,9 @@ nnoremap cn *``cgn
 " colorscheme sierra
 " colorscheme nova
 " colorscheme base16-default-dark
-colorscheme palenight
+ "colorscheme base16-oceanicnext
+ colorscheme flatcolor
+"colorscheme palenight
 let g:palenight_terminal_italics=1
 set colorcolumn=80
 
@@ -163,6 +165,9 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_refresh_always = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+set inccommand=split
 " set cmdheight=1
 " let g:echodoc_enable_at_startup	= 1
 " disable the preview entirely
@@ -208,6 +213,9 @@ endfunction
 
 imap <expr><TAB> <SID>neosnippet_complete()
 
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.config/nvim/plugged/vim-snippets/snippets'
+
 " Comfortable motion
 let g:comfortable_motion_no_default_key_mappings = 1
 nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
@@ -226,7 +234,7 @@ let g:fzf_files_options =
 \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 " nnoremap <leader>t :Files<cr>
 nnoremap <C-p> :Files<CR>
-nnoremap <leader>b :Buffers<cr>
+nnoremap ; :Buffers<cr>
 
 " visual bell for errors
 set visualbell
@@ -264,3 +272,8 @@ endfunc
 nnoremap <leader>r :call NumberToggle()<cr>
 
 nnoremap <silent> <leader>c :call RebuildTags()<CR>
+
+call camelcasemotion#CreateMotionMappings(',')
+
+" Run the current file with rspec
+ map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>

@@ -32,6 +32,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'jbranchaud/vim-bdubs'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'xolox/vim-session'
+Plug 'tpope/vim-obsession'
 Plug 'xolox/vim-misc'
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
@@ -40,6 +41,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'rhysd/clever-f.vim'
 Plug 'ryanoasis/vim-webdevicons'
 Plug 'webastien/vim-ctags'
+Plug 'bkad/CamelCaseMotion'
+
 
 " Languages support
 Plug 'tpope/vim-haml', { 'for': 'haml' }
@@ -65,8 +68,13 @@ endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g tern' }
 " Plug 'Shougo/echodoc.vim'
+
+" Tmux
+Plug 'edkolev/tmuxline.vim'
+Plug 'benmills/vimux'
 
 " Themes
 Plug 'morhetz/gruvbox'
@@ -83,3 +91,4 @@ Plug 'trevordmiller/nova-vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'dracula/vim'
 Plug 'chriskempson/base16-vim'
+Plug 'MaxSt/FlatColor'
