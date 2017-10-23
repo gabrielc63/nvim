@@ -2,7 +2,7 @@
 "" General Mappings (Normal, Visual, Operator-pending)
 ""
 " Open tab
-:noremap tt :tab split<CR>
+:noremap to :tab split<CR>
 " Close tab
 :noremap tc :tabc <CR>
 
