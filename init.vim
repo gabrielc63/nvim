@@ -21,7 +21,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#neomake#error_symbol='✖ '
 let g:airline#extensions#neomake#warning_symbol='⚠️  '
 " let g:airline_theme='powerlineish'
-let g:airline_theme='dracula'
+"let g:airline_theme='dracula'
+let g:airline_theme='one'
+let g:airline#extensions#tmuxline#enabled = 0
+let g:tmuxline_theme = 'jellybeans'
+let g:jsx_ext_required = 0
 
 " Indent
 let g:indentLine_enabled = 0
@@ -73,10 +77,17 @@ set updatetime=250
 
 " search
 " nmap <C-F> :Ack<space>
-nmap <C-F> :Ag<space>
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+nmap <C-F> :Rg<space>
 
 " Press i to enter insert mode, and kj to exit.
-:inoremap jk <Esc>
+:inoremap jk <Esc>`^
+au InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
 
 " Save file
 " nnoremap <Leader>:w <Esc>:w<CR>
@@ -91,7 +102,9 @@ nnoremap cn *``cgn
 " colorscheme nova
 " colorscheme base16-default-dark
  "colorscheme base16-oceanicnext
- colorscheme flatcolor
+ "colorscheme flatcolor
+ "colorscheme hybrid
+ colorscheme hybrid_reverse
 "colorscheme palenight
 let g:palenight_terminal_italics=1
 set colorcolumn=80
@@ -127,23 +140,13 @@ autocmd! BufWritePost * Neomake
 let g:neomake_warning_sign = {'text': '•', 'texthl': 'NeomakeWarningSign'}
 let g:neomake_error_sign = {'text': '•', 'texthl': 'NeomakeErrorSign'}
 
-"Control P
-" nnoremap <silent> <leader>T :ClearCtrlPCache<cr>\|:CtrlP<cr>
-" 'let g:ctrlp_max_files=0
-" let g:ctrlp_max_depth=40
-" set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-" let g:ctrlp_custom_ignore = {
-    " \ 'dir':  '\v[\/]\.(git|hg|svn)$|bower_components|node_modules',
-    " \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
-    " \ }
-
 " cambiar de pane con ctrl y direccion
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
-" close buffer
+" close buffer without closing the split
 nnoremap <C-c> :bp\|bd #<CR>
 
 " Go to first and last character in line
@@ -158,15 +161,21 @@ let &t_SR .= "\<Esc>[4 q"
 "common - block
 let &t_EI .= "\<Esc>[3 q"
 
-
+" Close the documentation window when completion is done
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+autocmd CompleteDone * pclose
 " deoplete tab-complete
 let g:deoplete#auto_complete_delay = 50
+" use tab to forward cycle
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" use tab to backward cycle
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#enable_refresh_always = 1
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" split when :%s/
 set inccommand=split
 " set cmdheight=1
 " let g:echodoc_enable_at_startup	= 1
@@ -276,4 +285,7 @@ nnoremap <silent> <leader>c :call RebuildTags()<CR>
 call camelcasemotion#CreateMotionMappings(',')
 
 " Run the current file with rspec
- map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+"map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+let test#strategy = "vimux"
+" Fix indent after paste
+nnoremap p p`[v`]=
