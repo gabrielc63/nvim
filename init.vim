@@ -20,9 +20,8 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#neomake#error_symbol='✖ '
 let g:airline#extensions#neomake#warning_symbol='⚠️  '
-" let g:airline_theme='powerlineish'
 "let g:airline_theme='dracula'
-let g:airline_theme='one'
+"let g:airline_theme='one'
 let g:airline#extensions#tmuxline#enabled = 0
 let g:tmuxline_theme = 'jellybeans'
 let g:jsx_ext_required = 0
@@ -98,14 +97,14 @@ nnoremap cn *``cgn
 
 " theme
 " let g:neodark#background='black' " black, gray or brown
-" colorscheme sierra
 " colorscheme nova
-" colorscheme base16-default-dark
+ "colorscheme base16-default-dark
  "colorscheme base16-oceanicnext
  "colorscheme flatcolor
  "colorscheme hybrid
- colorscheme hybrid_reverse
+ "colorscheme hybrid_reverse
 "colorscheme palenight
+colorscheme one
 let g:palenight_terminal_italics=1
 set colorcolumn=80
 
@@ -203,6 +202,9 @@ let g:deoplete#omni#input_patterns.cpp = [
             \ '[^. *\t]->\w*',
             \ '[\w>]*::\w*',
             \ ]
+" Use tern_for_vim.
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
 
 "neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -286,6 +288,15 @@ call camelcasemotion#CreateMotionMappings(',')
 
 " Run the current file with rspec
 "map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
-let test#strategy = "vimux"
+let test#strategy = "neovim"
+" Show next matched string at the center of the screen
+nnoremap n nzz
+nnoremap N Nzz
+
 " Fix indent after paste
 nnoremap p p`[v`]=
+" js folding
+augroup javascript_folding
+  au!
+  au FileType javascript setlocal foldmethod=syntax
+augroup END
