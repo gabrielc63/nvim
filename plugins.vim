@@ -43,6 +43,7 @@ Plug 'ryanoasis/vim-webdevicons'
 Plug 'webastien/vim-ctags'
 Plug 'bkad/CamelCaseMotion'
 Plug 'janko-m/vim-test'
+Plug 'MattesGroeger/vim-bookmarks'
 
 
 " Languages support

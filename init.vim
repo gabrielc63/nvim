@@ -17,13 +17,13 @@ exe 'source ' . s:path . '/custom/mappings.vim'
 
 " Airline
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#neomake#error_symbol='✖ '
 let g:airline#extensions#neomake#warning_symbol='⚠️  '
 "let g:airline_theme='dracula'
 "let g:airline_theme='one'
 let g:airline#extensions#tmuxline#enabled = 0
-let g:tmuxline_theme = 'jellybeans'
+"let g:tmuxline_theme = 'jellybeans'
 let g:jsx_ext_required = 0
 
 " Indent
@@ -100,16 +100,20 @@ nnoremap cn *``cgn
 " colorscheme nova
  "colorscheme base16-default-dark
  "colorscheme base16-oceanicnext
- "colorscheme flatcolor
+ "colorscheme flatenned-light
  "colorscheme hybrid
- "colorscheme hybrid_reverse
+ " colorscheme hybrid_reverse
 "colorscheme palenight
-colorscheme one
+" colorscheme one
+colorscheme molokai
 let g:palenight_terminal_italics=1
 set colorcolumn=80
 
 " show hidden files
 let NERDTreeShowHidden=1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
 " This unsets the "last search pattern" register by hitting return
 " nnoremap <CR> :noh<CR><CR>
