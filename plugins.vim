@@ -4,7 +4,7 @@
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-endwise'
 " Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'ctrlpvim/ctrlp.vim', { 'commit': 'f6c587e408dc0b45ffbabdadbb19739f8429e1eb' } "see: https://github.com/ctrlpvim/ctrlp.vim/issues/235
@@ -14,8 +14,9 @@ Plug 'junegunn/fzf.vim'
 "Plug 'junegunn/vim-slash'
 Plug 'romainl/vim-cool'
 Plug 'junegunn/vim-easy-align'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 " Plug 'jeetsukumaran/vim-buffergator'
 Plug 'bronson/vim-trailing-whitespace'
@@ -37,13 +38,16 @@ Plug 'xolox/vim-misc'
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-utils/vim-ruby-fold'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'rhysd/clever-f.vim'
 Plug 'ryanoasis/vim-webdevicons'
 Plug 'webastien/vim-ctags'
 Plug 'bkad/CamelCaseMotion'
 Plug 'janko-m/vim-test'
 Plug 'MattesGroeger/vim-bookmarks'
+Plug 'jiangmiao/auto-pairs'
+Plug 'andymass/vim-matchup'
+Plug 'posva/vim-vue'
 
 
 " Languages support
@@ -60,7 +64,7 @@ Plug 'slashmili/alchemist.vim', { 'branch': 'async-completion'}
 Plug 'mvolkmann/vim-react'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'elmcast/elm-vim'
+" Plug 'elmcast/elm-vim'
 " Plug 'burnettk/vim-angular'
 
 " Autocomplete (requires python 3)

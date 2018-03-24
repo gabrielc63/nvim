@@ -16,15 +16,15 @@ exe 'source ' . s:path . '/custom/defaults.vim'
 exe 'source ' . s:path . '/custom/mappings.vim'
 
 " Airline
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 "let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#neomake#error_symbol='✖ '
-let g:airline#extensions#neomake#warning_symbol='⚠️  '
+" let g:airline#extensions#neomake#error_symbol='✖ '
+" let g:airline#extensions#neomake#warning_symbol='⚠️  '
 "let g:airline_theme='dracula'
 "let g:airline_theme='one'
-let g:airline#extensions#tmuxline#enabled = 0
+" let g:airline#extensions#tmuxline#enabled = 0
 "let g:tmuxline_theme = 'jellybeans'
-let g:jsx_ext_required = 0
+" let g:jsx_ext_required = 0
 
 " Indent
 let g:indentLine_enabled = 0
@@ -142,6 +142,21 @@ let g:neomake_elixir_enabled_checkers = ['mix', 'credo']
 autocmd! BufWritePost * Neomake
 let g:neomake_warning_sign = {'text': '•', 'texthl': 'NeomakeWarningSign'}
 let g:neomake_error_sign = {'text': '•', 'texthl': 'NeomakeErrorSign'}
+
+" Run each enabled maker one after the other.
+let g:neomake_serialize = 1
+
+" Abort after the first error status is encountered
+let g:neomake_serialize_abort_on_error = 1
+
+" Preseve cursor position when quickfix window is open
+" let g:neomake_open_list = 2
+
+" The height of quickfix list opened by Neomake
+" let g:neomake_list_height = 10
+
+" Shows warning and error counts in vim-airline
+" let g:airline#extensions#neomake#enabled = 1
 
 " cambiar de pane con ctrl y direccion
 nnoremap <C-j> <C-w>j
@@ -304,3 +319,6 @@ augroup javascript_folding
   au!
   au FileType javascript setlocal foldmethod=syntax
 augroup END
+
+" js goto definition
+nnoremap <leader>ed :TernDef<cr>
