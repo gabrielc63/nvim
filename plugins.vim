@@ -48,6 +48,13 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'jiangmiao/auto-pairs'
 Plug 'andymass/vim-matchup'
 Plug 'posva/vim-vue'
+Plug 'dbakker/vim-projectroot'
+" Plug 'hackhowtofaq/vim-solargraph'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next'
+    \ }
+
 
 
 " Languages support
@@ -64,6 +71,8 @@ Plug 'slashmili/alchemist.vim', { 'branch': 'async-completion'}
 Plug 'mvolkmann/vim-react'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
+Plug 'styled-components/vim-styled-components'
+Plug 'elzr/vim-json'
 " Plug 'elmcast/elm-vim'
 " Plug 'burnettk/vim-angular'
 
@@ -71,13 +80,14 @@ Plug 'pangloss/vim-javascript'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+" Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g tern' }
+" Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g tern' }
 Plug 'ternjs/tern_for_vim'
 " Plug 'Shougo/echodoc.vim'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 " Tmux
 Plug 'edkolev/tmuxline.vim'
@@ -102,3 +112,6 @@ Plug 'chriskempson/base16-vim'
 "Plug 'MaxSt/FlatColor'
 Plug 'w0ng/vim-hybrid'
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'ajmwagar/vim-deus'
+Plug 'ajh17/Spacegray.vim'
+Plug 'patstockwell/vim-monokai-tasty'

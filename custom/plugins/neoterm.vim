@@ -1,4 +1,4 @@
-let g:neoterm_position = 'horizontal'
+" let g:neoterm_position = 'horizontal'
 let g:neoterm_automap_keys = ',tt'
 
 " Useful maps

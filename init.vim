@@ -21,7 +21,7 @@ exe 'source ' . s:path . '/custom/mappings.vim'
 " let g:airline#extensions#neomake#error_symbol='✖ '
 " let g:airline#extensions#neomake#warning_symbol='⚠️  '
 "let g:airline_theme='dracula'
-"let g:airline_theme='one'
+" let g:airline_theme='molokai'
 " let g:airline#extensions#tmuxline#enabled = 0
 "let g:tmuxline_theme = 'jellybeans'
 " let g:jsx_ext_required = 0
@@ -32,6 +32,9 @@ let g:indentLine_enabled = 0
 " Disable netrw /
 let g:loaded_netrw        = 1
 let g:loaded_netrwPlugin  = 1
+
+" show quotes in json file
+let g:vim_json_syntax_conceal = 0
 
 " SudoEdit should ask password on terminal only
 let g:sudo_no_gui=1
@@ -101,13 +104,15 @@ nnoremap cn *``cgn
  "colorscheme base16-default-dark
  "colorscheme base16-oceanicnext
  "colorscheme flatenned-light
- "colorscheme hybrid
  " colorscheme hybrid_reverse
 "colorscheme palenight
 " colorscheme one
-colorscheme molokai
-let g:palenight_terminal_italics=1
+colorscheme base16-material-darker
 set colorcolumn=80
+
+let g:lightline = {
+      \ 'colorscheme': 'molokai',
+      \ }
 
 " show hidden files
 let NERDTreeShowHidden=1
@@ -180,18 +185,18 @@ let &t_SR .= "\<Esc>[4 q"
 let &t_EI .= "\<Esc>[3 q"
 
 " Close the documentation window when completion is done
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-autocmd CompleteDone * pclose
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" autocmd CompleteDone * pclose
 " deoplete tab-complete
-let g:deoplete#auto_complete_delay = 50
+" let g:deoplete#auto_complete_delay = 50
 " use tab to forward cycle
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " use tab to backward cycle
-inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_refresh_always = 1
+" inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#auto_complete_start_length = 1
+" let g:deoplete#enable_smart_case = 1
+" let g:deoplete#enable_refresh_always = 1
 
 " split when :%s/
 set inccommand=split
@@ -200,30 +205,37 @@ set inccommand=split
 " disable the preview entirely
 " let g:tern_request_timeout = 1
 " let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-  \ 'jspc#omni'
-\]
+" let g:deoplete#omni#functions = {}
+" let g:deoplete#omni#functions.javascript = [
+  " \ 'tern#Complete',
+  " \ 'jspc#omni'
+" \]
 
 "Add extra filetypes
-let g:tern#filetypes = [
-                \ 'jsx',
-                \ 'javascript.jsx',
-                \ 'vue'
-                \ ]
+" let g:tern#filetypes = [
+                " \ 'jsx',
+                " \ 'javascript.jsx',
+                " \ 'vue'
+                " \ ]
 
-if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-endif
-let g:deoplete#omni#input_patterns.cpp = [
-            \ '[^. *\t]\.\w*',
-            \ '[^. *\t]->\w*',
-            \ '[\w>]*::\w*',
-            \ ]
+" if !exists('g:deoplete#omni#input_patterns')
+    " let g:deoplete#omni#input_patterns = {}
+" endif
+" let g:deoplete#omni#input_patterns.cpp = [
+            " \ '[^. *\t]\.\w*',
+            " \ '[^. *\t]->\w*',
+            " \ '[\w>]*::\w*',
+            " \ ]
 " Use tern_for_vim.
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
+
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 "neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -301,6 +313,7 @@ endfunc
 " Toggle between normal and relative numbering.
 nnoremap <leader>r :call NumberToggle()<cr>
 
+" create ctags
 nnoremap <silent> <leader>c :call RebuildTags()<CR>
 
 call camelcasemotion#CreateMotionMappings(',')
@@ -322,3 +335,4 @@ augroup END
 
 " js goto definition
 nnoremap <leader>ed :TernDef<cr>
+
