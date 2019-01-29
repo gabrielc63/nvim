@@ -71,7 +71,6 @@ Plug 'slashmili/alchemist.vim', { 'branch': 'async-completion'}
 Plug 'mvolkmann/vim-react'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'styled-components/vim-styled-components'
 Plug 'elzr/vim-json'
 " Plug 'elmcast/elm-vim'
 " Plug 'burnettk/vim-angular'

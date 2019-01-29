@@ -111,7 +111,7 @@ colorscheme base16-material-darker
 set colorcolumn=80
 
 let g:lightline = {
-      \ 'colorscheme': 'molokai',
+      \ 'colorscheme': 'Tomorrow_Night_Eighties',
       \ }
 
 " show hidden files
