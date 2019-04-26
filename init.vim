@@ -15,17 +15,6 @@ exe 'source ' . s:path . '/custom/janus.vim'
 exe 'source ' . s:path . '/custom/defaults.vim'
 exe 'source ' . s:path . '/custom/mappings.vim'
 
-" Airline
-" let g:airline_powerline_fonts = 1
-"let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#neomake#error_symbol='✖ '
-" let g:airline#extensions#neomake#warning_symbol='⚠️  '
-"let g:airline_theme='dracula'
-" let g:airline_theme='molokai'
-" let g:airline#extensions#tmuxline#enabled = 0
-"let g:tmuxline_theme = 'jellybeans'
-" let g:jsx_ext_required = 0
-
 " Indent
 let g:indentLine_enabled = 0
 
@@ -66,7 +55,6 @@ endif
 exe 'source ' . s:path . '/custom/plugins/nerdtree.vim'
 " exe 'source ' . s:path . '/custom/plugins/tcomment.vim'
 exe 'source ' . s:path . '/custom/plugins/fugitive.vim'
-" exe 'source ' . s:path . '/custom/plugins/ctrlp.vim'
 exe 'source ' . s:path . '/custom/strip-whitespaces.vim'
 exe 'source ' . s:path . '/custom/plugins/neoterm.vim'
 exe 'source ' . s:path . '/custom/plugins/vim-session.vim'
@@ -101,17 +89,15 @@ nnoremap <Leader>w :w<CR>
 " alternative to ctrl D
 nnoremap cn *``cgn
 
-" theme
-" let g:neodark#background='black' " black, gray or brown
-" colorscheme nova
- "colorscheme base16-default-dark
- "colorscheme base16-oceanicnext
- "colorscheme flatenned-light
+ " let g:neodark#background='black' " black, gray or brown
+ " colorscheme nova
+ " colorscheme base16-default-dark
+ " colorscheme base16-oceanicnext
+ " colorscheme flatenned-light
  " colorscheme hybrid_reverse
-colorscheme palenight
-" colorscheme one
-" colorscheme base16-material-darker
+ " colorscheme base16-material-darker
 set colorcolumn=80
+colorscheme palenight
 
 let g:lightline = {
       \ 'colorscheme': 'PaperColor_dark',
@@ -193,20 +179,6 @@ let &t_SI .= "\<Esc>[5 q"
 let &t_SR .= "\<Esc>[4 q"
 "common - block
 let &t_EI .= "\<Esc>[3 q"
-
-" Close the documentation window when completion is done
-" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-" autocmd CompleteDone * pclose
-" deoplete tab-complete
-" let g:deoplete#auto_complete_delay = 50
-" use tab to forward cycle
-" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" use tab to backward cycle
-" inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#auto_complete_start_length = 1
-" let g:deoplete#enable_smart_case = 1
-" let g:deoplete#enable_refresh_always = 1
 
 " split when :%s/
 set inccommand=split
