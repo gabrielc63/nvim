@@ -64,12 +64,15 @@ endif
 "
 
 exe 'source ' . s:path . '/custom/plugins/nerdtree.vim'
-exe 'source ' . s:path . '/custom/plugins/nerdcommenter.vim'
+" exe 'source ' . s:path . '/custom/plugins/tcomment.vim'
 exe 'source ' . s:path . '/custom/plugins/fugitive.vim'
 " exe 'source ' . s:path . '/custom/plugins/ctrlp.vim'
 exe 'source ' . s:path . '/custom/strip-whitespaces.vim'
 exe 'source ' . s:path . '/custom/plugins/neoterm.vim'
 exe 'source ' . s:path . '/custom/plugins/vim-session.vim'
+
+" For comments
+nnoremap <Leader>/ :TComment<CR>
 
 " with this rvm will work
 set shell=zsh
@@ -105,13 +108,20 @@ nnoremap cn *``cgn
  "colorscheme base16-oceanicnext
  "colorscheme flatenned-light
  " colorscheme hybrid_reverse
-"colorscheme palenight
+colorscheme palenight
 " colorscheme one
-colorscheme base16-material-darker
+" colorscheme base16-material-darker
 set colorcolumn=80
 
 let g:lightline = {
-      \ 'colorscheme': 'Tomorrow_Night_Eighties',
+      \ 'colorscheme': 'PaperColor_dark',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ },
       \ }
 
 " show hidden files
@@ -236,6 +246,14 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> for trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 
 "neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
