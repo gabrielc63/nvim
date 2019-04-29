@@ -1,8 +1,4 @@
-This is a Janus Plugged fork.
-
-# Janus Plugged: Vim Distribution
-
-Janus served me well for many years, but it's so damn slow today.
+# NeoVim Distribution
 
 ## Copy/Paste easy install (OS X)
 
