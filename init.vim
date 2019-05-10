@@ -97,18 +97,25 @@ nnoremap cn *``cgn
  " colorscheme hybrid_reverse
  " colorscheme base16-material-darker
 set colorcolumn=80
-colorscheme palenight
+colorscheme dracula
 
 let g:lightline = {
-      \ 'colorscheme': 'PaperColor_dark',
+      \ 'colorscheme': 'Dracula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \             [  'gitbranch', 'readonly', 'filename', 'modified', 'spell' ] ]
       \ },
       \ 'component_function': {
-      \   'cocstatus': 'coc#status'
-      \ },
+      \   'gitbranch': 'fugitive#head',
       \ }
+      \ }
+
+      " \ 'component_function': {
+      " \   'cocstatus': 'coc#status'
+      " \ },
+
+" set to 1, nvim will open the preview window after entering the markdown buffer
+let g:mkdp_auto_start = 0
 
 " show hidden files
 let NERDTreeShowHidden=1
