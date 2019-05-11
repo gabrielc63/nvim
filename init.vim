@@ -105,6 +105,9 @@ let g:lightline = {
       \   'left': [ [ 'mode', 'paste' ],
       \             [  'gitbranch', 'readonly', 'filename', 'modified', 'spell' ] ]
       \ },
+      \   'component': {
+      \     'lineinfo': '? %3l:%-2v',
+      \   },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
       \ }

@@ -51,6 +51,7 @@ Plug 'andymass/vim-matchup'
 Plug 'posva/vim-vue'
 Plug 'dbakker/vim-projectroot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'bling/vim-bufferline'
 " Plug 'hackhowtofaq/vim-solargraph'
 
 Plug 'autozimu/LanguageClient-neovim', {
