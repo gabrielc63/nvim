@@ -52,6 +52,7 @@ Plug 'posva/vim-vue'
 Plug 'dbakker/vim-projectroot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'bling/vim-bufferline'
+Plug 'rhysd/git-messenger.vim'
 " Plug 'hackhowtofaq/vim-solargraph'
 
 Plug 'autozimu/LanguageClient-neovim', {
@@ -75,8 +76,6 @@ Plug 'mvolkmann/vim-react'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
-" Plug 'elmcast/elm-vim'
-" Plug 'burnettk/vim-angular'
 
 " Autocomplete (requires python 3)
 function! DoRemote(arg)

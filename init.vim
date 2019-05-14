@@ -98,9 +98,10 @@ nnoremap cn *``cgn
  " colorscheme base16-material-darker
 set colorcolumn=80
 colorscheme dracula
+let g:tmuxline_preset = 'jellybeans'
 
 let g:lightline = {
-      \ 'colorscheme': 'Dracula',
+      \ 'colorscheme': 'darcula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [  'gitbranch', 'readonly', 'filename', 'modified', 'spell' ] ]
