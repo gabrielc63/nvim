@@ -11,3 +11,10 @@ pip3 install neovim
 pip2 install neovim
 ```
 run :CheckHealth on neovim
+
+## Coc
+coc completion [sources](https://github.com/neoclide/coc-sources).
+
+```vim
+:CocInstall coc-neosnippet
+```

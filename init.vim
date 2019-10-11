@@ -1,4 +1,4 @@
-let g:python_host_skip_check=1
+" let g:python_host_skip_check=1
 let s:path = expand('<sfile>:p:h')
 let mapleader = "\<Space>"
 
@@ -61,6 +61,7 @@ exe 'source ' . s:path . '/custom/plugins/vim-session.vim'
 
 " For comments
 nnoremap <Leader>/ :TComment<CR>
+vnoremap <Leader>/ :TComment<CR>
 
 " with this rvm will work
 set shell=zsh
@@ -69,7 +70,6 @@ set shell=zsh
 set updatetime=250
 
 " search
-" nmap <C-F> :Ack<space>
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
@@ -94,11 +94,11 @@ nnoremap cn *``cgn
  " colorscheme base16-default-dark
  " colorscheme base16-oceanicnext
  " colorscheme flatenned-light
- " colorscheme hybrid_reverse
+ colorscheme hybrid_reverse
  " colorscheme base16-material-darker
 set colorcolumn=80
-colorscheme dracula
-let g:tmuxline_preset = 'jellybeans'
+" colorscheme dracula
+" let g:tmuxline_preset = 'jellybeans'
 
 let g:lightline = {
       \ 'colorscheme': 'darcula',
@@ -193,32 +193,7 @@ let &t_EI .= "\<Esc>[3 q"
 
 " split when :%s/
 set inccommand=split
-" set cmdheight=1
-" let g:echodoc_enable_at_startup	= 1
-" disable the preview entirely
-" let g:tern_request_timeout = 1
-" let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
-" let g:deoplete#omni#functions = {}
-" let g:deoplete#omni#functions.javascript = [
-  " \ 'tern#Complete',
-  " \ 'jspc#omni'
-" \]
 
-"Add extra filetypes
-" let g:tern#filetypes = [
-                " \ 'jsx',
-                " \ 'javascript.jsx',
-                " \ 'vue'
-                " \ ]
-
-" if !exists('g:deoplete#omni#input_patterns')
-    " let g:deoplete#omni#input_patterns = {}
-" endif
-" let g:deoplete#omni#input_patterns.cpp = [
-            " \ '[^. *\t]\.\w*',
-            " \ '[^. *\t]->\w*',
-            " \ '[\w>]*::\w*',
-            " \ ]
 " Use tern_for_vim.
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
@@ -273,8 +248,44 @@ let g:session_persist_colors = 0
 let g:session_persist_font = 0
 
 " FZF
+"Let the input go up and the search list go down
+let $FZF_DEFAULT_OPTS = '--layout=reverse'
+
+"Open FZF and choose floating window
+let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }
 let g:fzf_files_options =
 \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+
+function! OpenFloatingWin()
+  let height = &lines - 3
+  let width = float2nr(&columns - (&columns * 2 / 10))
+  let col = float2nr((&columns - width) / 2)
+
+  "Set the position, size, etc. of the floating window.
+  "The size configuration here may not be so flexible, and there's room for further improvement.
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': height * 0.3,
+        \ 'col': col + 30,
+        \ 'width': width * 2 / 3,
+        \ 'height': height / 2
+        \ }
+
+  let buf = nvim_create_buf(v:false, v:true)
+  let win = nvim_open_win(buf, v:true, opts)
+
+  "Set Floating Window Highlighting
+  call setwinvar(win, '&winhl', 'Normal:Pmenu')
+
+  setlocal
+        \ buftype=nofile
+        \ nobuflisted
+        \ bufhidden=hide
+        \ nonumber
+        \ norelativenumber
+        \ signcolumn=no
+endfunction
+
 " nnoremap <leader>t :Files<cr>
 nnoremap <C-p> :Files<CR>
 nnoremap ; :Buffers<cr>

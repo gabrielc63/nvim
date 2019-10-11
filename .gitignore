@@ -2,3 +2,5 @@ plugged
 .netrwhist
 autoload/plug.vim.old
 .init*
+node_modules/
+.DS_Store

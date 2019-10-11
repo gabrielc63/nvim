@@ -2,6 +2,7 @@
 " Make sure you use single quotes
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'EvanDotPro/nerdtree-symlink'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 " Plug 'Raimondi/delimitMate'
@@ -40,7 +41,7 @@ Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
 Plug 'vim-utils/vim-ruby-fold'
 " Plug 'sheerun/vim-polyglot'
-Plug 'rhysd/clever-f.vim'
+" Plug 'rhysd/clever-f.vim'
 Plug 'ryanoasis/vim-webdevicons'
 Plug 'webastien/vim-ctags'
 Plug 'bkad/CamelCaseMotion'
@@ -51,8 +52,9 @@ Plug 'andymass/vim-matchup'
 Plug 'posva/vim-vue'
 Plug 'dbakker/vim-projectroot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'bling/vim-bufferline'
+" Plug 'bling/vim-bufferline'
 Plug 'rhysd/git-messenger.vim'
+
 " Plug 'hackhowtofaq/vim-solargraph'
 
 Plug 'autozimu/LanguageClient-neovim', {
@@ -81,14 +83,16 @@ Plug 'elzr/vim-json'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
+Plug 'typeintandem/nvim', { 'do': function('DoRemote') }
 " Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 " Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install -g tern' }
-Plug 'ternjs/tern_for_vim'
+" Plug 'ternjs/tern_for_vim'
 " Plug 'Shougo/echodoc.vim'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'johngrib/vim-game-code-break'
 
 " Tmux
 Plug 'edkolev/tmuxline.vim'
@@ -102,7 +106,6 @@ Plug 'romainl/flattened'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'tomasr/molokai'
 Plug 'carakan/new-railscasts-theme'
-Plug 'dikiaap/minimalist'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'AlessandroYorba/Despacio'
 Plug 'AlessandroYorba/Sierra'
@@ -116,4 +119,3 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ajmwagar/vim-deus'
 Plug 'ajh17/Spacegray.vim'
 Plug 'patstockwell/vim-monokai-tasty'
-Plug 'haishanh/night-owl.vim'

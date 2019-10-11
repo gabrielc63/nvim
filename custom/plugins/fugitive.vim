@@ -1,4 +1,3 @@
-" Janus mappings
 " call janus#add_mapping('fugitive', 'nmap', '<leader>gl', ':Glog<CR>')
 " call janus#add_mapping('fugitive', 'nmap', '<leader>gp', ':Git push<CR>')
 
@@ -19,6 +18,11 @@ nnoremap <space>gb :Git branch<Space>
 nnoremap <space>go :Git checkout<Space>
 nnoremap <space>gps :Dispatch! git push<CR>
 nnoremap <space>gpl :Dispatch! git pull<CR>
+
+" Fugitive Conflict Resolution
+nnoremap <leader>gd :Gvdiff<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
 
 " :Gdiff
 set diffopt+=vertical
