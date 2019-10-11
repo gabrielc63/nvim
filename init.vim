@@ -142,24 +142,24 @@ autocmd BufWritePre * :StripWhitespace
 " call matchadd('Trail', '\s\+$', 100)
 
 " Linting
-let g:neomake_serialize = 1
-let g:neomake_serialize_abort_on_error = 1
-let g:neomake_verbose = 1
-let g:neomake_javascript_enabled_makers = ['eslint']
+" let g:neomake_serialize = 1
+" let g:neomake_serialize_abort_on_error = 1
+" let g:neomake_verbose = 1
+" let g:neomake_javascript_enabled_makers = ['eslint']
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
-let g:neomake_scss_enabled_checkers = ['scss-lint']
-let g:neomake_haml_enabled_checkers = ['hamllint']
-let g:neomake_elixir_enabled_checkers = ['mix', 'credo']
-autocmd! BufWritePost * Neomake
-let g:neomake_warning_sign = {'text': '•', 'texthl': 'NeomakeWarningSign'}
-let g:neomake_error_sign = {'text': '•', 'texthl': 'NeomakeErrorSign'}
+" let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
+" let g:neomake_scss_enabled_checkers = ['scss-lint']
+" let g:neomake_haml_enabled_checkers = ['hamllint']
+" let g:neomake_elixir_enabled_checkers = ['mix', 'credo']
+" autocmd! BufWritePost * Neomake
+" let g:neomake_warning_sign = {'text': '•', 'texthl': 'NeomakeWarningSign'}
+" let g:neomake_error_sign = {'text': '•', 'texthl': 'NeomakeErrorSign'}
 
 " Run each enabled maker one after the other.
-let g:neomake_serialize = 1
+" let g:neomake_serialize = 1
 
 " Abort after the first error status is encountered
-let g:neomake_serialize_abort_on_error = 1
+" let g:neomake_serialize_abort_on_error = 1
 
 " Preseve cursor position when quickfix window is open
 " let g:neomake_open_list = 2
