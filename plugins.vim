@@ -92,7 +92,7 @@ Plug 'honza/vim-snippets'
 " Plug 'ternjs/tern_for_vim'
 " Plug 'Shougo/echodoc.vim'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-let g:coc_global_extensions = ['coc-eslint', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
+let g:coc_global_extensions = ['coc-eslint', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-solargraph']
 Plug 'johngrib/vim-game-code-break'
 
 " Tmux
