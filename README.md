@@ -6,9 +6,10 @@
 git clone https://github.com/gabrielc63/nvim.git ~/.config/nvim
 nvim +PlugInstall +qall
 brew install python
-brew install python3
+brew install python2
 pip3 install neovim
 pip2 install neovim
+brew install ripgrep
 ```
 run :CheckHealth on neovim
 
