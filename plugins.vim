@@ -3,6 +3,7 @@
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'EvanDotPro/nerdtree-symlink'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 " Plug 'Raimondi/delimitMate'
@@ -78,6 +79,7 @@ Plug 'mvolkmann/vim-react'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
+Plug 'KurtPreston/vim-autoformat-rails'
 
 " Autocomplete (requires python 3)
 function! DoRemote(arg)
@@ -98,9 +100,11 @@ Plug 'johngrib/vim-game-code-break'
 " Tmux
 Plug 'edkolev/tmuxline.vim'
 Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Themes
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
 Plug 'romainl/flattened'

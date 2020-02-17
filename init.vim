@@ -194,10 +194,6 @@ let &t_EI .= "\<Esc>[3 q"
 " split when :%s/
 set inccommand=split
 
-" Use tern_for_vim.
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
-
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -222,6 +218,9 @@ nmap <silent> gr <Plug>(coc-references)
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" make error texts have a red color
+highlight CocErrorHighlight ctermfg=Red  guifg=#ff0000
+
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -237,7 +236,7 @@ endfunction
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
+vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 "neosnippet
@@ -336,9 +335,6 @@ autocmd FileType javascript nnoremap <Leader>j :normal gggqG<CR>
 let g:ruby_fold_lines_limit = 450
 set nofoldenable
 
-" elm format on save
-let g:elm_format_autosave = 1
-
 " Relative numbering
 function! NumberToggle()
   if(&relativenumber == 1)
@@ -360,12 +356,14 @@ call camelcasemotion#CreateMotionMappings(',')
 " Run the current file with rspec
 "map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
 let test#strategy = "neovim"
+
 " Show next matched string at the center of the screen
 nnoremap n nzz
 nnoremap N Nzz
 
 " Fix indent after paste
 nnoremap p p`[v`]=
+
 " js folding
 augroup javascript_folding
   au!
