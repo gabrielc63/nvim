@@ -100,19 +100,20 @@ set colorcolumn=80
 " colorscheme dracula
 " let g:tmuxline_preset = 'jellybeans'
 
-let g:lightline = {
-      \ 'colorscheme': 'darcula',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [  'gitbranch', 'readonly', 'filename', 'modified', 'spell' ] ]
-      \ },
-      \   'component': {
-      \     'lineinfo': '? %3l:%-2v',
-      \   },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head',
-      \ }
-      \ }
+"  let g:eleline_powerline_fonts = 1
+" let g:lightline = {
+"       \ 'colorscheme': 'darcula',
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste' ],
+"       \             [  'gitbranch', 'readonly', 'filename', 'modified', 'spell' ] ]
+"       \ },
+"       \   'component': {
+"       \     'lineinfo': '? %3l:%-2v',
+"       \   },
+"       \ 'component_function': {
+"       \   'gitbranch': 'fugitive#head',
+"       \ }
+"       \ }
 
       " \ 'component_function': {
       " \   'cocstatus': 'coc#status'
