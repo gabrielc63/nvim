@@ -42,26 +42,19 @@ set mouse=a
 set noautoindent
 
 " Execute Vroom with :terminal when in NeoVim
-if has('nvim')
-  let g:vroom_use_terminal=1
-endif
+let g:vroom_use_terminal=1
 
-"
 " Other customizations put in any of the below:
 " ~/.config/nvim/custom
 " ~/.config/nvim/custom/plugins
 "
-
 exe 'source ' . s:path . '/custom/plugins/nerdtree.vim'
-" exe 'source ' . s:path . '/custom/plugins/tcomment.vim'
+exe 'source ' . s:path . '/custom/plugins/tcomment.vim'
 exe 'source ' . s:path . '/custom/plugins/fugitive.vim'
+exe 'source ' . s:path . '/custom/plugins/airline.vim'
 exe 'source ' . s:path . '/custom/strip-whitespaces.vim'
 exe 'source ' . s:path . '/custom/plugins/neoterm.vim'
 exe 'source ' . s:path . '/custom/plugins/vim-session.vim'
-
-" For comments
-nnoremap <Leader>/ :TComment<CR>
-vnoremap <Leader>/ :TComment<CR>
 
 " with this rvm will work
 set shell=zsh
@@ -89,35 +82,15 @@ nnoremap <Leader>w :w<CR>
 " alternative to ctrl D
 nnoremap cn *``cgn
 
- " let g:neodark#background='black' " black, gray or brown
  " colorscheme nova
  " colorscheme base16-default-dark
  " colorscheme base16-oceanicnext
  " colorscheme flatenned-light
- colorscheme hybrid_reverse
+let g:enable_italic_font = 1
+colorscheme hybrid_reverse
  " colorscheme base16-material-darker
 set colorcolumn=80
-" colorscheme dracula
 " let g:tmuxline_preset = 'jellybeans'
-
-"  let g:eleline_powerline_fonts = 1
-" let g:lightline = {
-"       \ 'colorscheme': 'darcula',
-"       \ 'active': {
-"       \   'left': [ [ 'mode', 'paste' ],
-"       \             [  'gitbranch', 'readonly', 'filename', 'modified', 'spell' ] ]
-"       \ },
-"       \   'component': {
-"       \     'lineinfo': '? %3l:%-2v',
-"       \   },
-"       \ 'component_function': {
-"       \   'gitbranch': 'fugitive#head',
-"       \ }
-"       \ }
-
-      " \ 'component_function': {
-      " \   'cocstatus': 'coc#status'
-      " \ },
 
 " set to 1, nvim will open the preview window after entering the markdown buffer
 let g:mkdp_auto_start = 0
@@ -142,34 +115,7 @@ autocmd BufWritePre * :StripWhitespace
 " highlight Trail ctermbg=red guibg=red
 " call matchadd('Trail', '\s\+$', 100)
 
-" Linting
-" let g:neomake_serialize = 1
-" let g:neomake_serialize_abort_on_error = 1
-" let g:neomake_verbose = 1
-" let g:neomake_javascript_enabled_makers = ['eslint']
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-" let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
-" let g:neomake_scss_enabled_checkers = ['scss-lint']
-" let g:neomake_haml_enabled_checkers = ['hamllint']
-" let g:neomake_elixir_enabled_checkers = ['mix', 'credo']
-" autocmd! BufWritePost * Neomake
-" let g:neomake_warning_sign = {'text': '•', 'texthl': 'NeomakeWarningSign'}
-" let g:neomake_error_sign = {'text': '•', 'texthl': 'NeomakeErrorSign'}
-
-" Run each enabled maker one after the other.
-" let g:neomake_serialize = 1
-
-" Abort after the first error status is encountered
-" let g:neomake_serialize_abort_on_error = 1
-
-" Preseve cursor position when quickfix window is open
-" let g:neomake_open_list = 2
-
-" The height of quickfix list opened by Neomake
-" let g:neomake_list_height = 10
-
-" Shows warning and error counts in vim-airline
-" let g:airline#extensions#neomake#enabled = 1
 
 " cambiar de pane con ctrl y direccion
 nnoremap <C-j> <C-w>j
@@ -222,9 +168,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " make error texts have a red color
 highlight CocErrorHighlight ctermfg=Red  guifg=#ff0000
 
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -232,6 +175,9 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -274,9 +220,8 @@ let g:startify_session_autoload = 1
 let g:session_persist_colors = 0
 let g:session_persist_font = 0
 
-" FZF
-"Let the input go up and the search list go down
-let $FZF_DEFAULT_OPTS = '--layout=reverse'
+" FZF Let the input go up and the search list go down
+let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
 
 "Open FZF and choose floating window
 let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }
@@ -346,13 +291,24 @@ function! NumberToggle()
   endif
 endfunc
 
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+  if s:hidden_all  == 0
+    let s:hidden_all = 1
+    set showtabline=0
+  else
+    let s:hidden_all = 0
+    set showtabline=1
+  endif
+endfunction
+
 " Toggle between normal and relative numbering.
 nnoremap <leader>r :call NumberToggle()<cr>
+" Toggle showing tabs.
+nnoremap <leader>tt :call ToggleHiddenAll()<cr>
 
 " create ctags
 nnoremap <silent> <leader>c :call RebuildTags()<CR>
-
-call camelcasemotion#CreateMotionMappings(',')
 
 " Run the current file with rspec
 "map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>

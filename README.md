@@ -9,13 +9,28 @@ brew install python
 brew install python2
 pip3 install neovim
 pip2 install neovim
+pip install pynvim
+npm i -g neovim
 brew install ripgrep
 ```
 run :CheckHealth on neovim
 
-## Coc
-coc completion [sources](https://github.com/neoclide/coc-sources).
+## List of programs you should install
 
-```vim
-:CocInstall coc-neosnippet
+- ranger
+- ueberzug
+- ripgrep
+- fd
+- universal-ctags
+- lazy git
+- lazy docker
+
+## Install fonts
+```sh
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
 ```
+
