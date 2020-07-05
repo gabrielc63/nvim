@@ -52,6 +52,7 @@ exe 'source ' . s:path . '/custom/plugins/nerdtree.vim'
 exe 'source ' . s:path . '/custom/plugins/tcomment.vim'
 exe 'source ' . s:path . '/custom/plugins/fugitive.vim'
 exe 'source ' . s:path . '/custom/plugins/airline.vim'
+exe 'source ' . s:path . '/custom/plugins/fzf.vim'
 exe 'source ' . s:path . '/custom/strip-whitespaces.vim'
 exe 'source ' . s:path . '/custom/plugins/neoterm.vim'
 exe 'source ' . s:path . '/custom/plugins/vim-session.vim'
@@ -61,15 +62,6 @@ set shell=zsh
 
 " to solve gitgutter lag
 set updatetime=250
-
-" search
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-nmap <C-F> :Rg<space>
 
 " Press i to enter insert mode, and kj to exit.
 :inoremap jk <Esc>`^
@@ -210,51 +202,9 @@ nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 let g:startify_session_dir = '~/.vim/sessions'
 let g:startify_session_autoload = 1
 
-"vim session
+" vim session
 let g:session_persist_colors = 0
 let g:session_persist_font = 0
-
-" FZF Let the input go up and the search list go down
-let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
-
-"Open FZF and choose floating window
-let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }
-let g:fzf_files_options =
-\ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
-
-function! OpenFloatingWin()
-  let height = &lines - 3
-  let width = float2nr(&columns - (&columns * 2 / 10))
-  let col = float2nr((&columns - width) / 2)
-
-  "Set the position, size, etc. of the floating window.
-  "The size configuration here may not be so flexible, and there's room for further improvement.
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': height * 0.3,
-        \ 'col': col + 30,
-        \ 'width': width * 2 / 3,
-        \ 'height': height / 2
-        \ }
-
-  let buf = nvim_create_buf(v:false, v:true)
-  let win = nvim_open_win(buf, v:true, opts)
-
-  "Set Floating Window Highlighting
-  call setwinvar(win, '&winhl', 'Normal:Pmenu')
-
-  setlocal
-        \ buftype=nofile
-        \ nobuflisted
-        \ bufhidden=hide
-        \ nonumber
-        \ norelativenumber
-        \ signcolumn=no
-endfunction
-
-" nnoremap <leader>t :Files<cr>
-nnoremap <C-p> :Files<CR>
-nnoremap ; :Buffers<cr>
 
 " visual bell for errors
 set visualbell

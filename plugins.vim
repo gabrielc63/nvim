@@ -70,7 +70,7 @@ function! DoRemote(arg)
 endfunction
 Plug 'typeintandem/nvim', { 'do': function('DoRemote') }
 Plug 'honza/vim-snippets'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-snippets', 'coc-elixir', 'coc-eslint', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-solargraph']
 Plug 'johngrib/vim-game-code-break'
 
