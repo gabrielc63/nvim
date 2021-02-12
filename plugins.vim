@@ -1,9 +1,10 @@
 " Use this file to load any vim-plug enabled extension
 " Make sure you use single quotes
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'EvanDotPro/nerdtree-symlink'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'EvanDotPro/nerdtree-symlink'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
 Plug 'tpope/vim-unimpaired'
@@ -14,8 +15,8 @@ Plug 'junegunn/fzf.vim'
 "Plug 'junegunn/vim-slash'
 Plug 'romainl/vim-cool'
 Plug 'junegunn/vim-easy-align'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-eunuch'

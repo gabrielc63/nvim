@@ -48,10 +48,10 @@ let g:vroom_use_terminal=1
 " ~/.config/nvim/custom
 " ~/.config/nvim/custom/plugins
 "
-exe 'source ' . s:path . '/custom/plugins/nerdtree.vim'
+" exe 'source ' . s:path . '/custom/plugins/nerdtree.vim'
 exe 'source ' . s:path . '/custom/plugins/tcomment.vim'
 exe 'source ' . s:path . '/custom/plugins/fugitive.vim'
-exe 'source ' . s:path . '/custom/plugins/airline.vim'
+" exe 'source ' . s:path . '/custom/plugins/airline.vim'
 exe 'source ' . s:path . '/custom/plugins/fzf.vim'
 exe 'source ' . s:path . '/custom/strip-whitespaces.vim'
 exe 'source ' . s:path . '/custom/plugins/neoterm.vim'
@@ -87,11 +87,14 @@ set colorcolumn=80
 " set to 1, nvim will open the preview window after entering the markdown buffer
 let g:mkdp_auto_start = 0
 
+" call chad tree
+nnoremap <leader>n <cmd>CHADopen<cr>
+
 " show hidden files
-let NERDTreeShowHidden=1
+" let NERDTreeShowHidden=1
 
 " Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
+" let g:NERDSpaceDelims = 1
 
 " This unsets the "last search pattern" register by hitting return
 " nnoremap <CR> :noh<CR><CR>
@@ -146,7 +149,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> for trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" inoremap <silent><expr> <c-space> coc#refresh()
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -271,3 +274,14 @@ augroup javascript_folding
   au FileType javascript setlocal foldmethod=syntax
 augroup END
 
+let g:kite_supported_languages = ['ruby']
+autocmd FileType ruby let b:coc_suggest_disable = 1
+
+if &filetype == "ruby"
+  inoremap <c-space> <C-x><C-u>
+else
+  inoremap <silent><expr> <c-space> coc#refresh()
+endif
+
+set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P
+set laststatus=2  " always display the status line
