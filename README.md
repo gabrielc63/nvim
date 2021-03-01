@@ -13,6 +13,7 @@ pip install pynvim
 npm i -g neovim
 brew install ripgrep
 ```
+run :CHADdeps on neovim
 run :CheckHealth on neovim
 
 ## List of programs you should install

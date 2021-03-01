@@ -75,12 +75,9 @@ nnoremap <Leader>w :w<CR>
 nnoremap cn *``cgn
 
  " colorscheme nova
- " colorscheme base16-default-dark
- " colorscheme base16-oceanicnext
  " colorscheme flatenned-light
 let g:enable_italic_font = 1
 colorscheme hybrid_reverse
- " colorscheme base16-material-darker
 set colorcolumn=80
 " let g:tmuxline_preset = 'jellybeans'
 

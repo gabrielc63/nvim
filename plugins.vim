@@ -15,8 +15,6 @@ Plug 'junegunn/fzf.vim'
 "Plug 'junegunn/vim-slash'
 Plug 'romainl/vim-cool'
 Plug 'junegunn/vim-easy-align'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-eunuch'
@@ -45,15 +43,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'rhysd/git-messenger.vim'
 Plug 'chaoren/vim-wordmotion'
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next'
-    \ }
-
 " Languages support
 Plug 'tpope/vim-haml', { 'for': 'haml' }
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 " Plug 'brodock/vim-vroom', { 'branch': 'neovim-terminal' }
