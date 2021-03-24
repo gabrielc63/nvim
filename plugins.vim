@@ -42,6 +42,7 @@ Plug 'dbakker/vim-projectroot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'rhysd/git-messenger.vim'
 Plug 'chaoren/vim-wordmotion'
+Plug 'https://gitlab.com/maister/skyline.vim'
 
 " Languages support
 Plug 'tpope/vim-haml', { 'for': 'haml' }
@@ -79,7 +80,6 @@ Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
 Plug 'romainl/flattened'
 Plug 'KeitaNakamura/neodark.vim'
-Plug 'tomasr/molokai'
 Plug 'carakan/new-railscasts-theme'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'trevordmiller/nova-vim'
@@ -94,3 +94,4 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'ayu-theme/ayu-vim'
 Plug 'jmoggee/mirage.vim'
 Plug 'sainnhe/edge'
+Plug 'tanvirtin/nvim-monokai'

@@ -76,7 +76,7 @@ nnoremap cn *``cgn
  " colorscheme nova
  " colorscheme flatenned-light
 let g:enable_italic_font = 1
-colorscheme hybrid_reverse
+colorscheme hybrid_material
 set colorcolumn=80
 " let g:tmuxline_preset = 'jellybeans'
 
