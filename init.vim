@@ -47,7 +47,6 @@ let g:vroom_use_terminal=1
 " Other customizations put in any of the below:
 " ~/.config/nvim/custom
 " ~/.config/nvim/custom/plugins
-"
 exe 'source ' . s:path . '/custom/plugins/tcomment.vim'
 exe 'source ' . s:path . '/custom/plugins/fugitive.vim'
 exe 'source ' . s:path . '/custom/plugins/fzf.vim'
@@ -67,7 +66,6 @@ set updatetime=250
 au InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
 
 " Save file
-" nnoremap <Leader>:w <Esc>:w<CR>
 nnoremap <Leader>w :w<CR>
 
 " alternative to ctrl D
@@ -76,7 +74,7 @@ nnoremap cn *``cgn
  " colorscheme nova
  " colorscheme flatenned-light
 let g:enable_italic_font = 1
-colorscheme hybrid_material
+colorscheme hybrid
 set colorcolumn=80
 " let g:tmuxline_preset = 'jellybeans'
 
@@ -85,9 +83,6 @@ let g:mkdp_auto_start = 0
 
 " call chad tree
 nnoremap <leader>n <cmd>CHADopen<cr>
-
-" show hidden files
-" let NERDTreeShowHidden=1
 
 " Add spaces after comment delimiters by default
 " let g:NERDSpaceDelims = 1
@@ -99,12 +94,7 @@ nnoremap <leader>n <cmd>CHADopen<cr>
 :nnoremap <Leader>q :bd<CR>
 
 " strip trailing whitespace on save
-" autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre * :StripWhitespace
-
-" Highlight trailing whitespace
-" highlight Trail ctermbg=red guibg=red
-" call matchadd('Trail', '\s\+$', 100)
 
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 
@@ -210,11 +200,4 @@ augroup javascript_folding
   au FileType javascript setlocal foldmethod=syntax
 augroup END
 
-
-" set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2  " always display the status line
-
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
