@@ -22,7 +22,6 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-repeat'
 Plug 'svermeulen/vim-easyclip'
-Plug 'kassio/neoterm'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jbranchaud/vim-bdubs'
 Plug 'yuttie/comfortable-motion.vim'
@@ -44,8 +43,8 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'https://gitlab.com/maister/skyline.vim'
 
 " Languages support
-Plug 'tpope/vim-haml', { 'for': 'haml' }
-Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
+" Plug 'tpope/vim-haml', { 'for': 'haml' }
+" Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 " Plug 'tpope/vim-rails'
 " Plug 'vim-ruby/vim-ruby'
@@ -64,9 +63,13 @@ function! DoRemote(arg)
 endfunction
 Plug 'typeintandem/nvim', { 'do': function('DoRemote') }
 Plug 'honza/vim-snippets'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-snippets', 'coc-elixir', 'coc-eslint', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-solargraph']
-Plug 'johngrib/vim-game-code-break'
+Plug 'SirVer/ultisnips'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" let g:coc_global_extensions = ['coc-snippets', 'coc-elixir', 'coc-eslint', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-solargraph']
+Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'nvim-lua/completion-nvim'
+" Plug 'johngrib/vim-game-code-break'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Tmux
@@ -96,3 +99,4 @@ Plug 'jmoggee/mirage.vim'
 Plug 'sainnhe/edge'
 Plug 'tanvirtin/nvim-monokai'
 Plug 'folke/tokyonight.nvim'
+Plug 'rafamadriz/neon'

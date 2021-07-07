@@ -14,6 +14,7 @@ exe 'source ' . s:path . '/custom/janus.vim'
 " Core customizations
 exe 'source ' . s:path . '/custom/defaults.vim'
 exe 'source ' . s:path . '/custom/mappings.vim'
+exe 'source ' . s:path . '/custom/lspconfig.rc.vim'
 
 " Indent
 let g:indentLine_enabled = 0
@@ -50,9 +51,8 @@ let g:vroom_use_terminal=1
 exe 'source ' . s:path . '/custom/plugins/tcomment.vim'
 exe 'source ' . s:path . '/custom/plugins/fugitive.vim'
 exe 'source ' . s:path . '/custom/plugins/fzf.vim'
-exe 'source ' . s:path . '/custom/plugins/coc.vim'
+" exe 'source ' . s:path . '/custom/plugins/coc.vim'
 exe 'source ' . s:path . '/custom/strip-whitespaces.vim'
-exe 'source ' . s:path . '/custom/plugins/neoterm.vim'
 exe 'source ' . s:path . '/custom/plugins/vim-session.vim'
 
 " with this rvm will work
@@ -74,18 +74,14 @@ nnoremap cn *``cgn
  " colorscheme nova
  " colorscheme flatenned-light
 let g:enable_italic_font = 1
-colorscheme hybrid
+colorscheme neon
 set colorcolumn=80
-" let g:tmuxline_preset = 'jellybeans'
 
 " set to 1, nvim will open the preview window after entering the markdown buffer
 let g:mkdp_auto_start = 0
 
 " call chad tree
 nnoremap <leader>n <cmd>CHADopen<cr>
-
-" Add spaces after comment delimiters by default
-" let g:NERDSpaceDelims = 1
 
 " This unsets the "last search pattern" register by hitting return
 " nnoremap <CR> :noh<CR><CR>
@@ -98,7 +94,7 @@ autocmd BufWritePre * :StripWhitespace
 
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 
-" cambiar de pane con ctrl y direccion
+" switch pane ctrl plus key
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
@@ -180,9 +176,6 @@ nnoremap <leader>r :call NumberToggle()<cr>
 " Toggle showing tabs.
 nnoremap <leader>tt :call ToggleHiddenAll()<cr>
 
-" create ctags
-nnoremap <silent> <leader>c :call RebuildTags()<CR>
-
 " Run the current file with rspec
 "map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
 let test#strategy = "neovim"
@@ -201,3 +194,4 @@ augroup javascript_folding
 augroup END
 
 set laststatus=2  " always display the status line
+
