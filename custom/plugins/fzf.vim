@@ -87,8 +87,8 @@ command! -bang -nargs=* GGrep
 command! -bang -nargs=? -complete=dir Files
       \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
 
-nnoremap <silent> ;f :Rg<space>
+nnoremap <C-f> :Rg<space>
 
 " nnoremap <leader>t :Files<cr>
 nnoremap <C-p> :Files<CR>
-nnoremap ;; :Buffers<cr>
+nnoremap ; :Buffers<cr>

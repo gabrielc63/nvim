@@ -12,6 +12,10 @@ pip2 install neovim
 pip install pynvim
 npm i -g neovim
 brew install ripgrep
+npm install -g pyright
+npm install -g typescript typescript-language-server
+gem install solargraph
+npm install -g eslint
 ```
 run :CHADdeps on neovim
 run :CheckHealth on neovim
