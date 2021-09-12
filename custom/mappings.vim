@@ -6,6 +6,16 @@
 " Close tab
 :noremap tc :tabc <CR>
 
+" Go to first and last character in line
+noremap H ^
+noremap L $
+
+" close a buffer more easy
+:nnoremap <Leader>q :bd<CR>
+
+" close buffer without closing the split
+nnoremap <C-c> :bp\|bd #<CR>
+
 " Toggle paste mode
 nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
 nmap <silent> ,p :set invpaste<CR>:set paste?<CR>
@@ -128,8 +138,8 @@ else
   " Bubble single lines
   nmap <C-Up> [e
   nmap <C-Down> ]e
-  nmap <C-k> [e
-  nmap <C-j> ]e
+  " nmap <C-k> [e
+  " nmap <C-j> ]e
 
   " Bubble multiple lines
   vmap <C-Up> [egv
@@ -170,3 +180,9 @@ endif
 
 " After whitespace, insert the current directory into a command-line path
 cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : "\<C-P>"
+
+" switch pane ctrl plus key
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h

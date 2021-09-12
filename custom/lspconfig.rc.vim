@@ -1,17 +1,18 @@
 lua << EOF
 local nvim_lsp = require('lspconfig')
 local protocol = require'vim.lsp.protocol'
+require'lspinstall'.setup()
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  require'completion'.on_attach(client, bufnr)
+  -- require'completion'.on_attach(client, bufnr)
 
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   --Enable completion triggered by <c-x><c-o>
-  -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
   local opts = { noremap=true, silent=true }
@@ -62,11 +63,21 @@ local on_attach = function(client, bufnr)
     }
 end
 
+--vim.g.completion_chain_complete_list = {
+--  default = {
+--    { complete_items = { 'lsp' } },
+--    { complete_items = { 'buffers' } },
+--    { mode = { '<c-p>' } },
+--    { mode = { '<c-n>' } }
+--  },
+--}
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "solargraph", "tsserver", "pyright" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
+-- local servers = { "solargraph", "tsserver", "pyright" }
+local servers = require'lspinstall'.installed_servers()
+for _, server in pairs(servers) do
+  nvim_lsp[server].setup {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
@@ -106,18 +117,18 @@ EOF
 nnoremap <silent>K :Lspsaga hover_doc<CR>
 inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
 nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
-nnoremap <silent> <C-j> <Cmd>Lspsaga diagnostic_jump_next<CR>
+nnoremap <silent> <C-i> <Cmd>Lspsaga diagnostic_jump_next<CR>
 
 set completeopt=menuone,noinsert,noselect
 " Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-let g:completion_enable_snippet = 'UltiSnips'
-let g:UltiSnipsExpandTrigger="<CR>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:completion_enable_snippet = 'vim-vsnip'
+" let g:UltiSnipsExpandTrigger="<CR>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " let g:completion_confirm_key = "\<C-y>"
-autocmd BufEnter * lua require'completion'.on_attach()
-imap <silent> <c-space> <Plug>(completion_trigger)
+" autocmd BufEnter * lua require'completion'.on_attach()
+" imap <silent> <c-space> <Plug>(completion_trigger)

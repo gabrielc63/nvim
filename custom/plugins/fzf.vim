@@ -21,8 +21,7 @@ let g:fzf_colors =
 "Open FZF and choose floating window
 " let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }
 let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
-" let g:fzf_files_options =
-" \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+" let g:fzf_files_options = 'bat --style=numbers --color=always --line-range :500 {}'
 
 function! OpenFloatingWin()
   let height = &lines - 3

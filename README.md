@@ -26,7 +26,6 @@ run :CheckHealth on neovim
 - ueberzug
 - ripgrep
 - fd
-- universal-ctags
 - lazy git
 - lazy docker
 

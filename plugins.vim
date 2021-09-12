@@ -8,34 +8,35 @@ Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
 Plug 'tpope/vim-unimpaired'
-" Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-endwise'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 "Plug 'junegunn/vim-slash'
 Plug 'romainl/vim-cool'
 Plug 'junegunn/vim-easy-align'
-Plug 'airblade/vim-gitgutter'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
 Plug 'phaazon/hop.nvim'
 Plug 'tpope/vim-repeat'
 Plug 'svermeulen/vim-easyclip'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'jbranchaud/vim-bdubs'
+" Plug 'jbranchaud/vim-bdubs'
+Plug 'kazhala/close-buffers.nvim'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'tpope/vim-obsession'
 Plug 'xolox/vim-misc'
 Plug 'mhinz/vim-startify'
-Plug 'Yggdroot/indentLine'
 Plug 'vim-utils/vim-ruby-fold'
 " Plug 'rhysd/clever-f.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'janko-m/vim-test'
 Plug 'MattesGroeger/vim-bookmarks'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
+" Plug 'cohama/lexima.vim'
 Plug 'andymass/vim-matchup'
 Plug 'dbakker/vim-projectroot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
@@ -63,21 +64,22 @@ function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'typeintandem/nvim', { 'do': function('DoRemote') }
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " let g:coc_global_extensions = ['coc-snippets', 'coc-elixir', 'coc-eslint', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-solargraph']
 Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
 Plug 'glepnir/lspsaga.nvim'
-Plug 'nvim-lua/completion-nvim'
-" Plug 'johngrib/vim-game-code-break'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-lua/completion-nvim'
+" Plug 'steelsojka/completion-buffers'
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plug 'nvim-treesitter/nvim-treesitter', { 'branch': '0.5-compat', 'do': ':TSUpdate' }
 Plug 'folke/which-key.nvim'
 
 " Tmux
 Plug 'edkolev/tmuxline.vim'
 Plug 'benmills/vimux'
-Plug 'christoomey/vim-tmux-navigator'
+" Plug 'christoomey/vim-tmux-navigator'
 
 " Themes
 " Plug 'morhetz/gruvbox'
@@ -105,3 +107,4 @@ Plug 'sainnhe/edge'
 Plug 'tanvirtin/nvim-monokai'
 Plug 'folke/tokyonight.nvim'
 Plug 'rafamadriz/neon'
+Plug 'bluz71/vim-moonfly-colors'

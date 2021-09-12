@@ -54,6 +54,9 @@ exe 'source ' . s:path . '/custom/plugins/fzf.vim'
 " exe 'source ' . s:path . '/custom/plugins/coc.vim'
 exe 'source ' . s:path . '/custom/strip-whitespaces.vim'
 exe 'source ' . s:path . '/custom/plugins/vim-session.vim'
+exe 'source ' . s:path . '/custom/plugins/indent-blankline.vim'
+exe 'source ' . s:path . '/custom/plugins/which-key.vim'
+exe 'source ' . s:path . '/custom/plugins/gitsigns.vim'
 
 " with this rvm will work
 set shell=zsh
@@ -74,7 +77,7 @@ nnoremap cn *``cgn
  " colorscheme nova
  " colorscheme flatenned-light
 let g:enable_italic_font = 1
-colorscheme neon
+colorscheme onedark
 set colorcolumn=80
 
 " set to 1, nvim will open the preview window after entering the markdown buffer
@@ -86,26 +89,11 @@ nnoremap <leader>n <cmd>CHADopen<cr>
 " This unsets the "last search pattern" register by hitting return
 " nnoremap <CR> :noh<CR><CR>
 
-" close a buffer more easy
-:nnoremap <Leader>q :bd<CR>
-
 " strip trailing whitespace on save
 autocmd BufWritePre * :StripWhitespace
 
 let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 
-" switch pane ctrl plus key
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
-
-" close buffer without closing the split
-nnoremap <C-c> :bp\|bd #<CR>
-
-" Go to first and last character in line
-noremap H ^
-noremap L $
 " change cursor insert mode
 let guicursor = 1
 " insert mode - line
@@ -195,10 +183,4 @@ augroup END
 
 set laststatus=2  " always display the status line
 
-lua << EOF
-require("which-key").setup {
-  -- your configuration comes here
-  -- or leave it empty to use the default settings
-  -- refer to the configuration section below
-  }
-EOF
+let g:coq_settings = { "keymap.jump_to_mark": "<c-b>" }
