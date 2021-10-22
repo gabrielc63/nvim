@@ -110,14 +110,20 @@ saga.init_lsp_saga {
   hint_sign = '',
   infor_sign = '',
   border_style = "round",
+  code_action_prompt = {
+      enable = false,
+      sign = false,
+      sign_priority = 20,
+      virtual_text = true,
+    },
   }
 EOF
 
 " show hover doc
 nnoremap <silent>K :Lspsaga hover_doc<CR>
-inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
-nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
-nnoremap <silent> <C-i> <Cmd>Lspsaga diagnostic_jump_next<CR>
+" inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
+" nnoremap <silent> gh <Cmd>Lspsaga lsp_finder<CR>
+" nnoremap <silent> <C-i> <Cmd>Lspsaga diagnostic_jump_next<CR>
 
 set completeopt=menuone,noinsert,noselect
 " Use <Tab> and <S-Tab> to navigate through popup menu

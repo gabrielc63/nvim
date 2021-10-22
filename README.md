@@ -16,6 +16,12 @@ npm install -g pyright
 npm install -g typescript typescript-language-server
 gem install solargraph
 npm install -g eslint
+brew install luajit
+brew install tree-sitter
+npm install -g diagnostic-languageserver
+npm i -g eslint_d prettier
+:TSInstall javascript
+:TSInstallInfo
 ```
 run :CHADdeps on neovim
 run :CheckHealth on neovim
