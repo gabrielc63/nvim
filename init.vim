@@ -16,6 +16,29 @@ exe 'source ' . s:path . '/custom/defaults.vim'
 exe 'source ' . s:path . '/custom/mappings.vim'
 exe 'source ' . s:path . '/custom/lspconfig.rc.vim'
 
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+  if s:hidden_all  == 0
+    let s:hidden_all = 1
+    set showtabline=0
+  else
+    let s:hidden_all = 0
+    set showtabline=1
+  endif
+endfunction
+
+" Relative numbering
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set nornu
+    set number
+  else
+    set rnu
+  endif
+endfunc
+
+lua require('basic')
+
 " Indent
 let g:indentLine_enabled = 0
 
@@ -68,9 +91,6 @@ set updatetime=250
 :inoremap jk <Esc>`^
 au InsertLeave * call cursor([getpos('.')[1], getpos('.')[2]+1])
 
-" Save file
-nnoremap <Leader>w :w<CR>
-
 " alternative to ctrl D
 nnoremap cn *``cgn
 
@@ -84,7 +104,7 @@ set colorcolumn=80
 let g:mkdp_auto_start = 0
 
 " call chad tree
-nnoremap <leader>n <cmd>CHADopen<cr>
+" nnoremap <leader>n <cmd>CHADopen<cr>
 
 " This unsets the "last search pattern" register by hitting return
 " nnoremap <CR> :noh<CR><CR>
@@ -137,27 +157,6 @@ autocmd FileType javascript nnoremap <Leader>j :normal gggqG<CR>
 " ruby fold
 let g:ruby_fold_lines_limit = 450
 set nofoldenable
-
-" Relative numbering
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set nornu
-    set number
-  else
-    set rnu
-  endif
-endfunc
-
-let s:hidden_all = 0
-function! ToggleHiddenAll()
-  if s:hidden_all  == 0
-    let s:hidden_all = 1
-    set showtabline=0
-  else
-    let s:hidden_all = 0
-    set showtabline=1
-  endif
-endfunction
 
 " Toggle between normal and relative numbering.
 nnoremap <leader>r :call NumberToggle()<cr>
