@@ -63,17 +63,17 @@ Plug 'KurtPreston/vim-autoformat-rails'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
-Plug 'typeintandem/nvim', { 'do': function('DoRemote') }
+" Plug 'typeintandem/nvim', { 'do': function('DoRemote') }
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " let g:coc_global_extensions = ['coc-snippets', 'coc-elixir', 'coc-eslint', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier', 'coc-solargraph']
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'glepnir/lspsaga.nvim'
 " Plug 'nvim-lua/completion-nvim'
 " Plug 'steelsojka/completion-buffers'
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
-Plug 'nvim-treesitter/nvim-treesitter', { 'branch': '0.5-compat', 'do': ':TSUpdate' }
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'folke/which-key.nvim'
 
 " Tmux
@@ -108,3 +108,4 @@ Plug 'tanvirtin/nvim-monokai'
 Plug 'folke/tokyonight.nvim'
 Plug 'rafamadriz/neon'
 Plug 'bluz71/vim-moonfly-colors'
+Plug 'catppuccin/nvim'
