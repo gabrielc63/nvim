@@ -19,6 +19,7 @@ npm install -g eslint
 brew install luajit
 brew install tree-sitter
 npm install -g diagnostic-languageserver
+npm install --global yarn
 npm i -g eslint_d prettier
 :TSInstall javascript
 :TSInstallInfo

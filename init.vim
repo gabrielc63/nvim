@@ -96,7 +96,7 @@ nnoremap cn *``cgn
 
  " colorscheme nova
  " colorscheme flatenned-light
-let g:enable_italic_font = 1
+let g:onedark_terminal_italics = 1
 colorscheme onedark
 set colorcolumn=80
 
@@ -183,3 +183,7 @@ augroup END
 set laststatus=2  " always display the status line
 
 let g:coq_settings = { "keymap.jump_to_mark": "<c-b>" }
+
+lua << EOF
+require('nvim-autopairs').setup{}
+EOF
