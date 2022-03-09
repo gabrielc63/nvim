@@ -5,6 +5,7 @@
 " Plug 'EvanDotPro/nerdtree-symlink'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
 Plug 'tpope/vim-unimpaired'
