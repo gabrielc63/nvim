@@ -1,7 +1,7 @@
 lua << EOF
 local nvim_lsp = require('lspconfig')
 local protocol = require'vim.lsp.protocol'
-local lsp_installer = require("nvim-lsp-installer")
+-- local lsp_installer = require("nvim-lsp-installer")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -75,25 +75,25 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
--- local servers = { "solargraph", "tsserver", "pyright" }
--- for _, server in pairs(servers) do
---   nvim_lsp[server].setup {
---     on_attach = on_attach,
---     flags = {
---       debounce_text_changes = 150,
---       }
---     }
--- end
-
--- Register a handler that will be called for all installed servers.
--- Alternatively, you may also register handlers on specific server instances instead (see example below).
-lsp_installer.on_server_ready(function(server)
-  local opts = {
+local servers = { "solargraph", "tsserver", "pyright" }
+for _, server in pairs(servers) do
+  nvim_lsp[server].setup {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
+      }
     }
-  }
+end
+
+-- Register a handler that will be called for all installed servers.
+-- Alternatively, you may also register handlers on specific server instances instead (see example below).
+-- lsp_installer.on_server_ready(function(server)
+--   local opts = {
+ --    on_attach = on_attach,
+ --    flags = {
+    --   debounce_text_changes = 150,
+  --   }
+ --  }
 
   -- (optional) Customize the options passed to the server
   -- if server.name == "tsserver" then
@@ -102,8 +102,8 @@ lsp_installer.on_server_ready(function(server)
 
   -- This setup() function is exactly the same as lspconfig's setup function.
   -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-  server:setup(opts)
-end)
+--   server:setup(opts)
+-- end)
 
 require'nvim-treesitter.configs'.setup {
   highlight = {

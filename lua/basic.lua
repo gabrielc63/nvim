@@ -16,3 +16,5 @@ map('n', '<leader>n', '<cmd>CHADopen<CR>', {noremap = true})
 
 -- nvim-tree
 -- map('n', '<leader>r', ':call ToggleHiddenAll()<CR>', {noremap = true})
+
+require('nvim-autopairs').setup{}

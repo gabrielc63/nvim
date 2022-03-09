@@ -103,9 +103,6 @@ set colorcolumn=80
 " set to 1, nvim will open the preview window after entering the markdown buffer
 let g:mkdp_auto_start = 0
 
-" call chad tree
-" nnoremap <leader>n <cmd>CHADopen<cr>
-
 " This unsets the "last search pattern" register by hitting return
 " nnoremap <CR> :noh<CR><CR>
 
@@ -184,6 +181,7 @@ set laststatus=2  " always display the status line
 
 let g:coq_settings = { "keymap.jump_to_mark": "<c-b>" }
 
-lua << EOF
-require('nvim-autopairs').setup{}
-EOF
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
