@@ -19,8 +19,17 @@ map('n', '<leader>n', '<cmd>CHADopen<CR>', {noremap = true})
 
 require('nvim-autopairs').setup{}
 
-require('telescope').setup{}
+-- require('telescope').setup{}
+-- :help telescope.setup()
+
+require('telescope').setup{
+  defaults = {
+    layout_config = { prompt_position = 'top' },
+    sorting_strategy = "ascending",
+  },
+}
 
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
+
 require('telescope').load_extension('fzf')
