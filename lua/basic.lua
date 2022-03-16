@@ -26,6 +26,26 @@ require('telescope').setup{
   defaults = {
     layout_config = { prompt_position = 'top' },
     sorting_strategy = "ascending",
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      "--hidden",
+      "--glob=!.git/",
+    },
+    pickers = {
+      find_files = {
+        find_command = { "fd", "--type=file", "--hidden", "--smart-case" },
+      },
+      live_grep = {
+        --@usage don't include the filename in the search results
+        only_sort_text = true,
+      },
+    },
   },
 }
 
