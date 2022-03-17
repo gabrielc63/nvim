@@ -15,6 +15,7 @@ brew install ripgrep
 npm install -g pyright
 npm install -g typescript typescript-language-server
 gem install solargraph
+npm install -g @tailwindcss/language-server
 npm install -g eslint
 brew install luajit
 brew install tree-sitter

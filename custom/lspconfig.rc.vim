@@ -75,7 +75,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "solargraph", "tsserver", "pyright" }
+local servers = { "solargraph", "tsserver", "pyright", "tailwindcss" }
 for _, server in pairs(servers) do
   nvim_lsp[server].setup {
     on_attach = on_attach,
