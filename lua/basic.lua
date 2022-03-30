@@ -24,7 +24,11 @@ require('nvim-autopairs').setup{}
 
 require('telescope').setup{
   defaults = {
-    layout_config = { prompt_position = 'top' },
+    color_devicons = false,
+    layout_config = { prompt_position = 'top',
+                      width = 0.7,
+                      horizontal = { preview_width = 0.6 }
+    },
     sorting_strategy = "ascending",
     vimgrep_arguments = {
       "rg",

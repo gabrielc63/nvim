@@ -89,5 +89,5 @@ command! -bang -nargs=? -complete=dir Files
 nnoremap <C-f> :Rg<space>
 
 " nnoremap <leader>t :Files<cr>
-nnoremap <C-p> :Files<CR>
-nnoremap ; :Buffers<cr>
+" nnoremap <C-p> :Files<CR>
+" nnoremap ; :Buffers<cr>

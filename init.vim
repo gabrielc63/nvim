@@ -97,7 +97,7 @@ nnoremap cn *``cgn
  " colorscheme nova
  " colorscheme flatenned-light
 let g:onedark_terminal_italics = 1
-colorscheme onedark
+colorscheme nordfox
 set colorcolumn=80
 
 " set to 1, nvim will open the preview window after entering the markdown buffer
@@ -181,9 +181,10 @@ set laststatus=2  " always display the status line
 
 let g:coq_settings = { "keymap.jump_to_mark": "<c-b>" }
 
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fc <cmd>lua require('telescope.builtin').colorscheme()<cr>
+nnoremap ; <cmd>lua require('telescope.builtin').buffers({ sort_mru = true, ignore_current_buffer = true })<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string()<cr>
 nnoremap <leader>fl <cmd>Telescope git_files<cr>
