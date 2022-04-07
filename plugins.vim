@@ -85,6 +85,7 @@ Plug 'benmills/vimux'
 " Plug 'christoomey/vim-tmux-navigator'
 
 " Themes
+Plug 'sainnhe/everforest'
 Plug 'rktjmp/lush.nvim'
 Plug 'npxbr/gruvbox.nvim'
 " Plug 'rakr/vim-one'
