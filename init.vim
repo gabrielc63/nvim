@@ -180,7 +180,7 @@ augroup javascript_folding
 augroup END
 
 set laststatus=2  " always display the status line
-
+let g:coq_settings = { 'auto_start': v:true }
 let g:coq_settings = { "keymap.jump_to_mark": "<c-b>" }
 
 nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>

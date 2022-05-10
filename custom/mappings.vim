@@ -64,8 +64,6 @@ map <Up> gk
 " Toggle hlsearch with <leader>hs
 nmap <leader>hs :set hlsearch! hlsearch?<CR>
 
-" Adjust viewports to the same size
-map <Leader>= <C-w>=
 
 if has("nvim")
   " Use ESC to exit terminal mode
@@ -181,8 +179,16 @@ endif
 " After whitespace, insert the current directory into a command-line path
 cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : "\<C-P>"
 
-" switch pane ctrl plus key
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
+lua << EOF
+-- Better window navigation
+local opts = { noremap = true, silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
+
+-- Adjust viewports to the same size
+keymap("n", "<Leader>=", "<C-w>=", opts)
+EOF
