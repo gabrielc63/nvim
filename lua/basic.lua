@@ -26,7 +26,7 @@ require('telescope').setup{
   defaults = {
     color_devicons = false,
     layout_config = { prompt_position = 'top',
-                      width = 0.7,
+                      width = 0.9,
                       horizontal = { preview_width = 0.6 }
     },
     sorting_strategy = "ascending",
