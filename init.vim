@@ -99,7 +99,8 @@ nnoremap cn *``cgn
 let g:onedark_terminal_italics = 1
 let g:everforest_background = 'hard'
 " colorscheme nordfox
-colorscheme everforest
+" colorscheme everforest
+colorscheme duskfox
 set colorcolumn=80
 
 " set to 1, nvim will open the preview window after entering the markdown buffer
