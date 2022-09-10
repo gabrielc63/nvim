@@ -4,7 +4,10 @@
 
 ```sh
 git clone https://github.com/gabrielc63/nvim.git ~/.config/nvim
-nvim +PlugInstall +qall
+
+git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 brew install python
 brew install python2
 pip3 install neovim
@@ -17,11 +20,12 @@ npm install -g typescript typescript-language-server
 gem install solargraph
 npm install -g @tailwindcss/language-server
 npm install -g eslint
+npm install -g @fsouza/prettierd
+npm i -D prettier
 brew install luajit
 brew install tree-sitter
 npm install -g diagnostic-languageserver
 npm install --global yarn
-npm i -g eslint_d prettier
 :TSInstall javascript
 :TSInstallInfo
 ```
