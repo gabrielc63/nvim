@@ -18,7 +18,7 @@ keymap.set('n', 'dw', 'vb"_d')
 keymap.set('n', '<C-a>', 'gg<S-v>G')
 
 -- New tab
-keymap.set('n', 'to', ':tabedit<Return>', { silent = true } )
+keymap.set('n', 'to', ':$tab split<Return>', { silent = true } )
 -- Close tab
 keymap.set('n', 'tc', ':tabc<Return>', { silent = true } )
 -- Go to first and last character in line
@@ -56,3 +56,4 @@ keymap.set('n', '<leader>e', ':NvimTreeToggle<cr>')
 
 -- TComment
 keymap.set('n', '<Leader>/', ':TComment<CR>', { noremap = true })
+keymap.set('v', '<Leader>/', ':TComment<CR>', { noremap = true})
