@@ -27,7 +27,7 @@ vim.opt.si = true -- Smart indent
 vim.opt.wrap = false -- No wrap lines
 vim.opt.backspace = 'start,eol,indent'
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
-vim.opt.wildignore:append { '*/node_modules/*' } 
+-- vim.opt.wildignore:append { '*/node_modules/*' } 
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
