@@ -10,6 +10,14 @@ local check_backspace = function ()
   return col == 0 or vim.fn.getline('.'):sub(col, col):match "%s"
 end
 
+
+luasnip.config.set_config {
+  history = false,
+  updateevents = "TextChanged,TextChangedI",
+}
+
+require("luasnip/loaders/from_vscode").load()
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -57,6 +65,9 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'buffer' },
+    { name = 'luasnip' },
+    { name = "treesitter" },
+    { name = "path" },
   }),
   formatting = {
     format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
