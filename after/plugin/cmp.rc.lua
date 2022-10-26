@@ -17,6 +17,7 @@ luasnip.config.set_config {
 }
 
 require("luasnip/loaders/from_vscode").load()
+require("luasnip.loaders.from_snipmate").lazy_load()
 
 cmp.setup({
   snippet = {
