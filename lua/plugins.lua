@@ -12,23 +12,14 @@ packer.startup(function(use)
     'svrana/neosolarized.nvim',
     requires = {'tjdevries/colorbuddy.nvim'}
   }
-  use({
-    "kylechui/nvim-surround",
-    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-    config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
-    end
-  })
+  use { 'echasnovski/mini.surround', branch = 'stable' }
   use 'hoob3rt/lualine.nvim' -- Statusline
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
   use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
   -- use 'hrsh7th/nvim-cmp' -- Completion
   use {
-    'hrsh7th/nvim-cmp',
-    config = function() require('config.cmp') end,
+    'hrsh7th/nvim-cmp'
   }
   use 'neovim/nvim-lspconfig' -- LSP
   use 'glepnir/lspsaga.nvim' -- LSP UIs
@@ -38,7 +29,6 @@ packer.startup(function(use)
   use {
     'L3MON4D3/LuaSnip',
     wants = "friendly-snippets",
-    config = function() require('config.snippets') end,
   }
   use "rafamadriz/friendly-snippets"
   use {
