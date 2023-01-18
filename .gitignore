@@ -5,3 +5,4 @@ autoload/plug.vim.old
 node_modules/
 pack/
 .DS_Store
+plugin/packer_compiled.lua

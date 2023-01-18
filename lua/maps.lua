@@ -57,3 +57,6 @@ keymap.set('n', '<leader>e', ':NvimTreeToggle<cr>')
 -- TComment
 keymap.set('n', '<Leader>/', ':TComment<CR>', { noremap = true })
 keymap.set('v', '<Leader>/', ':TComment<CR>', { noremap = true})
+
+-- restore the session for the current directory
+vim.api.nvim_set_keymap("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]], {})

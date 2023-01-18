@@ -50,8 +50,13 @@ packer.startup(function(use)
   use 'rhysd/git-messenger.vim'
   use 'tpope/vim-fugitive'
   use 'tomtom/tcomment_vim'
+  use {
+      'jedrzejboczar/possession.nvim',
+      requires = { 'nvim-lua/plenary.nvim' },
+  }
   -- Themes
   use 'EdenEast/nightfox.nvim'
   use 'sainnhe/everforest'
   use 'npxbr/gruvbox.nvim'
+  use 'sam4llis/nvim-tundra'
 end)

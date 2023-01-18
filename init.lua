@@ -18,4 +18,4 @@ if is_win then
   require('windows')
 end
 
-vim.cmd [[ colorscheme everforest ]]
+vim.cmd [[ colorscheme tundra ]]

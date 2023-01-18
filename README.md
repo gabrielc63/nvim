@@ -26,6 +26,7 @@ brew install luajit
 brew install tree-sitter
 npm install -g diagnostic-languageserver
 npm install --global yarn
+npm install -g eslint_d
 :TSInstall javascript
 :TSInstallInfo
 ```
