@@ -46,14 +46,30 @@ packer.startup(function(use)
   use 'nvim-telescope/telescope.nvim'
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'romainl/vim-cool' -- disables search highlighting when you are done searching and re-enables it when you search again
+  use 'folke/tokyonight.nvim'
+  use {
+    'folke/which-key.nvim',
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup {}
+    end
+  }
   use 'lewis6991/gitsigns.nvim'
   use 'rhysd/git-messenger.vim'
   use 'tpope/vim-fugitive'
   use 'tomtom/tcomment_vim'
+  use { 'otavioschwanck/tmux-awesome-manager.nvim' }
+  use { 'otavioschwanck/telescope-alternate.nvim' }
   use {
       'jedrzejboczar/possession.nvim',
       requires = { 'nvim-lua/plenary.nvim' },
   }
+  use { 'otavioschwanck/ruby-toolkit.nvim', requires = { "nvim-treesitter/nvim-treesitter", "nvim-treesitter/nvim-treesitter-textobjects" }, config = function()
+    vim.keymap.set("n", "<leader>mv", "<cmd>lua require('ruby-toolkit').extract_variable()<CR>")
+    vim.keymap.set("v", "<leader>mf", "<cmd>lua require('ruby-toolkit').extract_to_function()<CR>")
+    vim.keymap.set("n", "<leader>mf", "<cmd>lua require('ruby-toolkit').create_function_from_text()<CR>")
+  end}
   -- Themes
   use 'EdenEast/nightfox.nvim'
   use 'sainnhe/everforest'

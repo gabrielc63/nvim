@@ -18,4 +18,10 @@ if is_win then
   require('windows')
 end
 
-vim.cmd [[ colorscheme tundra ]]
+-- vim.cmd [[ colorscheme carbonfox ]]
+-- require('nvim-tundra').setup({})
+require("tokyonight").setup({
+})
+
+vim.opt.background = 'dark'
+vim.cmd('colorscheme tokyonight')
