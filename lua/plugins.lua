@@ -59,6 +59,7 @@ packer.startup(function(use)
   use 'rhysd/git-messenger.vim'
   use 'tpope/vim-fugitive'
   use 'tomtom/tcomment_vim'
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use { 'otavioschwanck/tmux-awesome-manager.nvim' }
   use { 'otavioschwanck/telescope-alternate.nvim' }
   use {
@@ -75,4 +76,5 @@ packer.startup(function(use)
   use 'sainnhe/everforest'
   use 'npxbr/gruvbox.nvim'
   use 'sam4llis/nvim-tundra'
+  use 'gabrielc63/kanagawa.nvim'
 end)

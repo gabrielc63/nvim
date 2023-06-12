@@ -18,7 +18,9 @@ ts.setup {
     "css",
     "html",
     "ruby",
-    "lua"
+    "lua",
+    "elixir",
+    "heex"
   },
   autotag = {
     enable = true,
