@@ -12,6 +12,7 @@ ts.setup {
   },
   ensure_installed = {
     "tsx",
+    "javascript",
     "json",
     "yaml",
     "swift",
@@ -20,6 +21,8 @@ ts.setup {
     "ruby",
     "lua",
     "elixir",
+    "markdown",
+    "markdown_inline",
     "heex"
   },
   autotag = {

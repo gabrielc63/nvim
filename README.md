@@ -27,10 +27,9 @@ brew install tree-sitter
 npm install -g diagnostic-languageserver
 npm install --global yarn
 npm install -g eslint_d
-:TSInstall javascript
 :TSInstallInfo
 ```
-run :CHADdeps on neovim
+
 run :CheckHealth on neovim
 
 ## List of programs you should install
@@ -43,6 +42,7 @@ run :CheckHealth on neovim
 - lazy docker
 
 ## Install fonts
+
 ```sh
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
@@ -50,4 +50,3 @@ cd fonts
 cd ..
 rm -rf fonts
 ```
-

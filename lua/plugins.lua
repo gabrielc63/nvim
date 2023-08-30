@@ -8,6 +8,8 @@ vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
+  use 'chaoren/vim-wordmotion'
+  use { 'jokajak/keyseer.nvim', branch = 'stable' }
   use {
     'svrana/neosolarized.nvim',
     requires = {'tjdevries/colorbuddy.nvim'}
@@ -63,7 +65,7 @@ packer.startup(function(use)
   use { 'otavioschwanck/tmux-awesome-manager.nvim' }
   use { 'otavioschwanck/telescope-alternate.nvim' }
   use {
-      'jedrzejboczar/possession.nvim',
+      'jedrzejboczar/possession.nvim', -- save sessions
       requires = { 'nvim-lua/plenary.nvim' },
   }
   use { 'otavioschwanck/ruby-toolkit.nvim', requires = { "nvim-treesitter/nvim-treesitter", "nvim-treesitter/nvim-treesitter-textobjects" }, config = function()
@@ -75,6 +77,7 @@ packer.startup(function(use)
   use 'EdenEast/nightfox.nvim'
   use 'sainnhe/everforest'
   use 'npxbr/gruvbox.nvim'
-  use 'sam4llis/nvim-tundra'
   use 'gabrielc63/kanagawa.nvim'
+  use 'ribru17/bamboo.nvim'
+  use 'navarasu/onedark.nvim'
 end)

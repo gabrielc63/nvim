@@ -105,3 +105,17 @@ wk.register({
     C = { ":call BetterCopy()<CR>", "Copy current file to" }
     },
 }, { prefix = "<leader>", silent = false })
+
+-- Toggle between relative numbers and absolute numbers
+function toggle_line_numbers()
+    if vim.wo.relativenumber == true then
+        vim.wo.number = true
+        vim.wo.relativenumber = false
+    else
+        vim.wo.number = false
+        vim.wo.relativenumber = true
+    end
+end
+
+-- Map a key combination to toggle line numbers
+vim.api.nvim_set_keymap('n', '<leader>b', ':lua toggle_line_numbers()<CR>', { noremap = true, silent = true })
